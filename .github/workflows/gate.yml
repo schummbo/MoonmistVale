@@ -1,0 +1,7 @@
+name: Gate 🏰
+
+on: [pull_request]
+
+jobs:
+  build:
+    name: Build project 🛠️
