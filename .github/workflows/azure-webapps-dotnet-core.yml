@@ -4,7 +4,7 @@ on:
   push:
     branches: []
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
 env:
   UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
@@ -14,40 +14,36 @@ env:
 
 jobs:
   build:
-      name: Build for ${{ matrix.targetPlatform }}
-      runs-on: ubuntu-latest
-      strategy:
-        fail-fast: false
-        matrix:
-          targetPlatform:
-            - StandaloneLinux64
-            - iOS
-            - Android
-            - WebGL
-      steps:
-        - uses: actions/checkout@v3
-          with:
-            lfs: true
-        - uses: actions/cache@v3
-          with:
-            path: ${{ matrix.projectPath }}/Library
-            key: Library-${{ matrix.projectPath }}-${{ matrix.targetPlatform }}
-            restore-keys: |
-              Library-${{ matrix.projectPath }}-
-              Library-
-        # https://github.com/game-ci/unity-builder/releases/
-        - uses: game-ci/unity-builder@v2
-          with:
-            projectPath: ${{ env.PROJECT_PATH }}
-            targetPlatform: ${{ matrix.targetPlatform }}
-        - uses: actions/upload-artifact@v3
-          with:
-            name: Build-${{ matrix.targetPlatform }}
-            path: build
-            
+    name: Build for ${{ matrix.targetPlatform }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        targetPlatform:
+          - WebGL
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          lfs: true
+      - uses: actions/cache@v3
+        with:
+          path: ${{ matrix.projectPath }}/Library
+          key: Library-${{ matrix.projectPath }}-${{ matrix.targetPlatform }}
+          restore-keys: |
+            Library-${{ matrix.projectPath }}-
+            Library-
+      # https://github.com/game-ci/unity-builder/releases/
+      - uses: game-ci/unity-builder@v2
+        with:
+          projectPath: ${{ env.PROJECT_PATH }}
+          targetPlatform: ${{ matrix.targetPlatform }}
+      - uses: actions/upload-artifact@v3
+        with:
+          name: Build-${{ matrix.targetPlatform }}
+          path: build
+
   buildWithWindows:
     needs: [build]
-    if: needs.checklicense.outputs.is_unity_license_set == 'true'
     name: Build for ${{ matrix.targetPlatform }}
     runs-on: windows-2019
     strategy:
