@@ -10,7 +10,7 @@ concurrency:
 
 jobs:
   build:
-    name: Build 🛠️
+    name: Test and Build
     runs-on: ubuntu-latest
     steps:
       # Checkout
@@ -27,8 +27,22 @@ jobs:
             Library-MoonmistVale-WebGL
             Library-
 
+      - name: Test 🧪
+        uses: game-ci/unity-test-runner@v2
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+        with:
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload test results
+        uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: Test results
+          path: artifacts
+
       # Build
-      - name: Build project
+      - name: Build WebGL 🛠️
         uses: game-ci/unity-builder@v2
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
