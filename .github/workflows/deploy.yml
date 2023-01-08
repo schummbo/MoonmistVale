@@ -1,4 +1,4 @@
-name: Gate Build 🏰
+name: Deploy 🚢
 
 # on: [pull_request]
 on:
