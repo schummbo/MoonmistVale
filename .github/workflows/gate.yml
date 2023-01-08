@@ -1,8 +1,8 @@
 name: Gate Build 🏰
 
-# on: [push, pull_request]
-on:
-  workflow_dispatch: {}
+on: [push, pull_request]
+# on:
+#   workflow_dispatch: {}
 
 jobs:
   build:
@@ -23,13 +23,13 @@ jobs:
           restore-keys: |
             Library-
 
-      # # Test
-      # - name: Run tests
-      #   uses: game-ci/unity-test-runner@v2
-      #   env:
-      #     UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
-      #   with:
-      #     githubToken: ${{ secrets.GITHUB_TOKEN }}
+      # Test
+      - name: Run tests
+        uses: game-ci/unity-test-runner@v2
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+        with:
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
 
       # Build
       - name: Build project
