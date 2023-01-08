@@ -19,6 +19,14 @@ jobs:
         with:
           lfs: true
 
+      - uses: actions/cache@v2
+        with:
+          path: path/to/your/project/Library
+          key: Library-MyProjectName-TargetPlatform
+          restore-keys: |
+            Library-MyProjectName-
+            Library-
+
       # Test
       - name: Run tests
         uses: game-ci/unity-test-runner@v2

@@ -19,6 +19,14 @@ jobs:
         with:
           lfs: true
 
+      - uses: actions/cache@v2
+        with:
+          path: path/to/your/project/Library
+          key: Library-MyProjectName-TargetPlatform
+          restore-keys: |
+            Library-MyProjectName-
+            Library-
+
       # Build
       - name: Build project
         uses: game-ci/unity-builder@v2
