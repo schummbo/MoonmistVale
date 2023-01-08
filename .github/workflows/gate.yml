@@ -1,4 +1,4 @@
-name: Gate Build 🏰
+name: Gate 🏰
 
 on: [pull_request]
 # on:
