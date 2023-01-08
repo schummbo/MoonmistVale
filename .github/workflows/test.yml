@@ -9,8 +9,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build:
-    name: Build my project 🛠️
+  test:
+    name: Test 🧪
     runs-on: ubuntu-latest
     steps:
       # Checkout

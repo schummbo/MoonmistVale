@@ -10,7 +10,7 @@ concurrency:
 
 jobs:
   build:
-    name: Build my project 🛠️
+    name: Build 🛠️
     runs-on: ubuntu-latest
     steps:
       # Checkout
