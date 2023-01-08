@@ -1,8 +1,9 @@
-name: Test 🏰
+name: Release 🚢
 
-on: [pull_request]
-# on:
-#   workflow_dispatch: {}
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   build:
@@ -15,14 +16,6 @@ jobs:
         with:
           lfs: true
 
-      # Cache
-      - uses: actions/cache@v2
-        with:
-          path: Library
-          key: Library-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
-          restore-keys: |
-            Library-
-
       # Build
       - name: Build project
         uses: game-ci/unity-builder@v2
@@ -32,3 +25,9 @@ jobs:
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
           targetPlatform: WebGL
+
+      # Output
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Build
+          path: build
