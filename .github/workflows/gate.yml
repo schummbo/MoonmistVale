@@ -21,10 +21,10 @@ jobs:
 
       - uses: actions/cache@v2
         with:
-          path: path/to/your/project/Library
-          key: Library-MyProjectName-TargetPlatform
+          path: ./Library
+          key: Library-MoonmistVale-WebGL
           restore-keys: |
-            Library-MyProjectName-
+            Library-MoonmistVale-WebGL
             Library-
 
       # Build
