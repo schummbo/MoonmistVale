@@ -15,14 +15,6 @@ jobs:
         with:
           lfs: true
 
-      # Cache
-      - uses: actions/cache@v2
-        with:
-          path: Library
-          key: Library-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
-          restore-keys: |
-            Library-
-
       # Test
       - name: Run tests
         uses: game-ci/unity-test-runner@v2
