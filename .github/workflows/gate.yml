@@ -1,4 +1,4 @@
-name: Gate 🏰
+name: Test and Build 🧪
 
 on: [pull_request]
 # on:
@@ -19,13 +19,12 @@ jobs:
         with:
           lfs: true
 
-      - uses: actions/cache@v2
+      - name: Get Library from Cache 💰
+        uses: actions/cache@v2
         with:
           path: ./Library
-          key: Library-MoonmistVale-WebGL
-          restore-keys: |
-            Library-MoonmistVale-WebGL
-            Library-
+          key: Library-${{ github.sha }}
+          restore-keys: Library-
 
       - name: Test 🧪
         uses: game-ci/unity-test-runner@v2
