@@ -21,9 +21,8 @@ jobs:
 
       - uses: actions/cache@v2
         with:
-          path: ./Library
-          key: Library-${{ github.sha }}
-          restore-keys: Library-
+          path: Library
+          key: Library
 
       - name: Test 🧪
         uses: game-ci/unity-test-runner@v2
