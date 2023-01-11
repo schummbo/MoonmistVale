@@ -5,6 +5,15 @@ on:
     branches:
       - main
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
 jobs:
   build:
     name: Build my project 🛠️
@@ -16,6 +25,9 @@ jobs:
         with:
           lfs: true
 
+      - name: Setup Pages
+        uses: actions/configure-pages@v2
+
       # Build
       - name: Build project
         uses: game-ci/unity-builder@v2
@@ -25,6 +37,7 @@ jobs:
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
           targetPlatform: WebGL
+          buildsPath: ./_site
           allowDirtyBuild: true
 
       # Output
