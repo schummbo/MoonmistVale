@@ -19,10 +19,12 @@ jobs:
         with:
           lfs: true
 
-      - uses: actions/cache@v2
+      - name: Get Library from Cache 💰
+        uses: actions/cache@v2
         with:
-          path: Library
-          key: Library
+          path: ./Library
+          key: Library-${{ github.sha }}
+          restore-keys: Library-
 
       - name: Test 🧪
         uses: game-ci/unity-test-runner@v2

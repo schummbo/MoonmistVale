@@ -23,8 +23,9 @@ jobs:
       - name: Get Library from Cache 💰
         uses: actions/cache@v2
         with:
-          path: Library
-          key: Library
+          path: ./Library
+          key: Library-${{ github.sha }}
+          restore-keys: Library-
 
       # Build
       - name: Build 🛠️
