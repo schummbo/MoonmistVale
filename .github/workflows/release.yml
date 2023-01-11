@@ -1,15 +1,10 @@
-name: Release 🚢
+name: Build and Deploy 🚢
 
 on:
-  push:
-    branches:
-      - main
+  # push:
+  #   branches:
+  #     - main
   workflow_dispatch: {}
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
 
 concurrency:
   group: "pages"
@@ -17,20 +12,24 @@ concurrency:
 
 jobs:
   build:
-    name: Build my project 🛠️
+    name: Build 🛠️
     runs-on: ubuntu-latest
     steps:
       # Checkout
-      - name: Checkout repository
+      - name: Checkout repository 👀
         uses: actions/checkout@v2
         with:
           lfs: true
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v2
+      - name: Get Library from Cache 💰
+        uses: actions/cache@v2
+        with:
+          path: ./Library
+          key: Library-${{ github.sha }}
+          restore-keys: Library-
 
       # Build
-      - name: Build project
+      - name: Build 🛠️
         uses: game-ci/unity-builder@v2
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
@@ -38,20 +37,12 @@ jobs:
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
           targetPlatform: WebGL
-          buildsPath: ./_site
           allowDirtyBuild: true
 
-      # Output
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
-
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v1
+      - name: Deploy 🚢
+        uses: JamesIves/github-pages-deploy-action@4.1.3
+        with:
+          branch: gh-pages
+          folder: build/WebGL/WebGL
+          commit-message: Deploy
+          single-commit: true
