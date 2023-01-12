@@ -12,7 +12,7 @@ public class CharacterController : MonoBehaviour
     [SerializeField] public float Speed = 2f;
 
     private Vector2 motionVector;
-    private Vector2 lastDirection;
+    public  Vector2 LastDirection;
 
     void Awake()
     {
@@ -36,8 +36,8 @@ public class CharacterController : MonoBehaviour
         else
         {
             animator.Play("IdleTree");
-            animator.SetFloat("Horizontal", lastDirection.x);
-            animator.SetFloat("Vertical", lastDirection.y);
+            animator.SetFloat("Horizontal", LastDirection.x);
+            animator.SetFloat("Vertical", LastDirection.y);
         }
     }
 
@@ -45,7 +45,7 @@ public class CharacterController : MonoBehaviour
     {
         if (motionVector != Vector2.zero)
         {
-            lastDirection = motionVector;
+            LastDirection = motionVector;
         }
 
         motionVector = input.Get<Vector2>();
