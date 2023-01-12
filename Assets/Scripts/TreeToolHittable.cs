@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class TreeCuttable : ToolHit
+public class TreeToolHittable : ToolHittableItem
 { 
     [SerializeField] GameObject pickUpDrop;
     [SerializeField] int dropCount = 5;
