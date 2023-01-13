@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1280
     height: 629.3334
   m_ShowMode: 4
-  m_Title: Scene
+  m_Title: Game
   m_RootView: {fileID: 9}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -77,7 +77,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 67
+  controlID: 118
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -128,7 +128,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 104
+  controlID: 53
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -154,7 +154,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 25
+  controlID: 131
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -174,8 +174,8 @@ MonoBehaviour:
     y: 0
     width: 343.3333
     height: 579.3333
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
@@ -335,7 +335,7 @@ MonoBehaviour:
     m_LastAppliedPresetName: Default
     m_SaveData: []
   m_Spl:
-    ID: 158
+    ID: 1914
     splitterInitialOffset: 0
     currentActiveSplitter: -1
     realSizes:
@@ -366,9 +366,9 @@ MonoBehaviour:
       uniqueId: '[Moonmist Vale][suite]'
       name: Moonmist Vale
       fullName: Moonmist Vale
-      resultStatus: 4
-      duration: 13.136223
-      messages: One or more child tests were ignored
+      resultStatus: 2
+      duration: 495.32452
+      messages: One or more child tests had errors
       output: 
       stacktrace: 
       notRunnable: 0
@@ -382,9 +382,9 @@ MonoBehaviour:
       uniqueId: '[Tests][C:/Repos/Moonmist Vale/Library/ScriptAssemblies/Tests.dll][suite]'
       name: Tests.dll
       fullName: C:/Repos/Moonmist Vale/Library/ScriptAssemblies/Tests.dll
-      resultStatus: 1
-      duration: 12.612283
-      messages: 
+      resultStatus: 2
+      duration: 494.5932
+      messages: One or more child tests had errors
       output: 
       stacktrace: 
       notRunnable: 0
@@ -578,13 +578,24 @@ MonoBehaviour:
       - Integration
       parentId: 1007
       parentUniqueId: Unity.InputSystem.IntegrationTests.dll/[Unity.InputSystem.IntegrationTests][IntegrationTests][suite]
-    m_ResultText: PlayerMovesUp (3.129s)
-    m_ResultStacktrace: 
+    m_ResultText: "PlayerCanHitTree (494.284s)\n---\nExpected: null\r\n  But was: 
+      <Tree(Clone) (UnityEngine.GameObject)>\n---\nat ToolCharacterControllerTest+<PlayerCanHitTree>d__0.MoveNext
+      () [0x0014d] in C:\\Repos\\Moonmist Vale\\Assets\\Tests\\PlayMode\\ToolCharacterControllerTests.cs:37\r\nat
+      UnityEngine.TestTools.TestEnumerator+<Execute>d__7.MoveNext () [0x0004e] in
+      C:\\Repos\\Moonmist Vale\\Library\\PackageCache\\com.unity.test-framework@1.1.33\\UnityEngine.TestRunner\\NUnitExtensions\\Attributes\\TestEnumerator.cs:46"
+    m_ResultStacktrace: 'at ToolCharacterControllerTest+<PlayerCanHitTree>d__0.MoveNext
+      () [0x0014d] in C:\Repos\Moonmist Vale\Assets\Tests\PlayMode\ToolCharacterControllerTests.cs:37
+
+      at
+      UnityEngine.TestTools.TestEnumerator+<Execute>d__7.MoveNext () [0x0004e] in
+      C:\Repos\Moonmist Vale\Library\PackageCache\com.unity.test-framework@1.1.33\UnityEngine.TestRunner\NUnitExtensions\Attributes\TestEnumerator.cs:46
+
+'
     m_TestListState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 4edbfd54
-      m_LastClickedID: 1425922894
-      m_ExpandedIDs: 7dc867838d0a6fcbadb9b7185c68672522524b3a0664c953ffffff7f
+      m_SelectedIDs: 54e1e8f8
+      m_LastClickedID: -118955692
+      m_ExpandedIDs: 7dc867838d0a6fcbadb9b7185c68672522524b3a0664c9532e0c1c6affffff7f
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -826,7 +837,7 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 43906
+  m_LastSelectedObjectID: 43418
 --- !u!114 &17
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -883,7 +894,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 4e830000
     m_LastClickedID: 33614
-    m_ExpandedIDs: 0000000072700000ca810000cc810000ce810000d0810000d2810000d4810000d6810000d8810000da810000
+    m_ExpandedIDs: 0000000084700000da810000dc810000de810000e0810000e2810000e4810000e6810000e8810000ea810000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -908,24 +919,24 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_AssetTreeState:
-    scrollPos: {x: 0, y: 16}
+    scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: ffffffff0000000072700000ca810000cc810000ce810000d0810000d2810000d4810000d6810000d8810000da810000
+    m_ExpandedIDs: ffffffff0000000084700000da810000dc810000de810000e0810000e2810000e4810000e6810000e8810000ea8100003c820000068a0000c6a300008eb20000ffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: MainCharacter
+      m_OriginalName: MainCharacter
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 28754
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 4}
     m_SearchString: 
@@ -1002,7 +1013,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 425.33337
+  m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:
@@ -1039,23 +1050,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 40700000
-      m_LastClickedID: 0
-      m_ExpandedIDs: 08fbffff
+      m_SelectedIDs: 9aa90000
+      m_LastClickedID: 43418
+      m_ExpandedIDs: 22a2ffffbea2ffff3ca6ffff86abffff22acffff8eafffffaab2ffff46b3ffffb0b6ffff90bbffff2cbcffff9ebfffff08fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: Tree
+        m_OriginalName: Tree
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: -24096
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 0
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 8}
       m_SearchString: 
@@ -1345,9 +1356,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0.5382402, y: -2.3870902, z: -0.1472446}
+    m_Target: {x: 1.0582857, y: 0.65224874, z: -0.029669989}
     speed: 2
-    m_Value: {x: 0.5382402, y: -2.3870902, z: -0.1472446}
+    m_Value: {x: 1.0582857, y: 0.65224874, z: -0.029669989}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1398,9 +1409,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 15.690754
+    m_Target: 4.9406314
     speed: 2
-    m_Value: 15.690754
+    m_Value: 4.9406314
   m_Ortho:
     m_Target: 1
     speed: 2
