@@ -1,9 +1,13 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ToolsCharacterController : MonoBehaviour
 {
     private CharacterController characterController;
     private Rigidbody2D rigidBody2D;
+    private PlayerInput playerInput;
+
+    private InputAction useToolAction;
 
     [SerializeField] private float offsetDistance = 1f;
     [SerializeField] private float sizeOfInteractableArea = 1.2f;
@@ -12,26 +16,31 @@ public class ToolsCharacterController : MonoBehaviour
     {
         characterController = GetComponent<CharacterController>();
         rigidBody2D = GetComponent<Rigidbody2D>();
+        playerInput = GetComponent<PlayerInput>();
+
+        useToolAction = playerInput.actions["UseTool"];
     }
 
-    void Update()
+    void OnEnable()
     {
-        if (Input.GetMouseButton(0))
-        {
-            UseTool();
-        }
+        useToolAction.performed += UseTool;
     }
 
+    void OnDisable()
+    {
+        useToolAction.performed -= UseTool;
+    }
+    
     /// <summary>
     /// Checks the direction the character is facing.
     /// If any colliders in the area in front of the character has
-    /// a ToolHittableItem component, perform the hit.
+    /// a ToolHittableBase component, perform the hit.
     ///
     /// Whatever the item was will determine what happens when it is hit.
     ///
     /// For example, a tree will split into x number of logs.
     /// </summary>
-    private void UseTool()
+    private void UseTool(InputAction.CallbackContext context)
     {
         var position = rigidBody2D.position + characterController.LastDirection * offsetDistance;
 
@@ -39,7 +48,7 @@ public class ToolsCharacterController : MonoBehaviour
 
         foreach (var collider in colliders)
         {
-            var hit = collider.GetComponent<ToolHittableItem>();
+            var hit = collider.GetComponent<ToolHittableBase>();
 
             if (hit != null)
             {
