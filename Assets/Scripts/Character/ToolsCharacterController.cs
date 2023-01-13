@@ -25,7 +25,7 @@ public class ToolsCharacterController : MonoBehaviour
     /// <summary>
     /// Checks the direction the character is facing.
     /// If any colliders in the area in front of the character has
-    /// a ToolHittableItem component, perform the hit.
+    /// a ToolHittableBase component, perform the hit.
     ///
     /// Whatever the item was will determine what happens when it is hit.
     ///
@@ -39,7 +39,7 @@ public class ToolsCharacterController : MonoBehaviour
 
         foreach (var collider in colliders)
         {
-            var hit = collider.GetComponent<ToolHittableItem>();
+            var hit = collider.GetComponent<ToolHittableBase>();
 
             if (hit != null)
             {
