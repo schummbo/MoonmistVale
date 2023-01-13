@@ -8,8 +8,14 @@ public class CharacterController : MonoBehaviour
 {
     private Rigidbody2D rigidbody2d;
     private Animator animator;
+    private PlayerInput playerInput;
+    private InputAction moveAction;
+    private InputAction toggleRunAction;
 
-    [SerializeField] public float Speed = 2f;
+    [SerializeField] public float WalkSpeed = 2f;
+    [SerializeField] public float RunSpeed = 4f;
+
+    [SerializeField] public float CurrentSpeed;
 
     private Vector2 motionVector;
     public  Vector2 LastDirection;
@@ -18,6 +24,42 @@ public class CharacterController : MonoBehaviour
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        playerInput = GetComponent<PlayerInput>();
+
+        moveAction = playerInput.actions["Move"];
+        toggleRunAction = playerInput.actions["ToggleRun"];
+    }
+
+    void OnEnable()
+    {
+        moveAction.performed += MoveStart;
+        moveAction.canceled += MoveStop;
+
+        toggleRunAction.performed += RunStart;
+        toggleRunAction.canceled += RunStop;
+
+        CurrentSpeed = WalkSpeed;
+    }
+
+    void OnDisable()
+    {
+        moveAction.performed -= MoveStart;
+        moveAction.canceled -= MoveStop;
+
+        toggleRunAction.performed -= RunStart;
+        toggleRunAction.canceled -= RunStop;
+    }
+
+    private void RunStop(InputAction.CallbackContext obj)
+    {
+        CurrentSpeed = WalkSpeed;
+        animator.speed = 1;
+    }
+
+    private void RunStart(InputAction.CallbackContext obj)
+    {
+        CurrentSpeed = RunSpeed;
+        animator.speed = 2f;
     }
 
     void Update()
@@ -41,17 +83,18 @@ public class CharacterController : MonoBehaviour
         }
     }
 
-    void OnMove(InputValue input)
+    public void MoveStart(InputAction.CallbackContext context)
     {
-        if (motionVector != Vector2.zero)
-        {
-            LastDirection = motionVector;
-        }
-
-        motionVector = input.Get<Vector2>();
+        motionVector = context.ReadValue<Vector2>();
     }
 
-    // Update is called once per frame
+    private void MoveStop(InputAction.CallbackContext context)
+    {
+        LastDirection = motionVector;
+        motionVector = new Vector2(0, 0);
+    }
+    
+
     void FixedUpdate()
     {
         Move();
@@ -59,6 +102,6 @@ public class CharacterController : MonoBehaviour
 
     private void Move()
     {
-        rigidbody2d.velocity = motionVector * Speed;
+        rigidbody2d.velocity = motionVector * CurrentSpeed;
     }
 }
