@@ -14,15 +14,14 @@ jobs:
     name: Build 🛠️
     runs-on: ubuntu-latest
     steps:
-      # Check if library changed
-      - uses: dorny/paths-filter@v2
+      - name: Check if library changed 📕
+        uses: dorny/paths-filter@v2
         id: changes
         with:
           filters: |
             library:
               - 'Library/**'
 
-      # Checkout
       - name: Checkout repository 👀
         uses: actions/checkout@v2
         with:
@@ -36,7 +35,6 @@ jobs:
           path: ./Library
           key: Library-Main
 
-      # Build
       - name: Build 🛠️
         uses: game-ci/unity-builder@v2
         env:
@@ -55,7 +53,8 @@ jobs:
           commit-message: Deploy
           single-commit: true
 
-      - uses: actions/cache/save@v3
+      - name: Cache library 💰
+        uses: actions/cache/save@v3
         with:
           path: ./Library
           key: Library-Main

@@ -13,16 +13,15 @@ jobs:
     name: Test and Build
     runs-on: ubuntu-latest
     steps:
-      # Check if library changed
-      - uses: dorny/paths-filter@v2
+      - name: Check if library changed 📕
+        uses: dorny/paths-filter@v2
         id: changes
         with:
           filters: |
             library:
               - 'Library/**'
 
-      # Checkout
-      - name: Checkout repository
+      - name: Checkout repository 👀
         uses: actions/checkout@v2
         with:
           lfs: true
@@ -42,14 +41,13 @@ jobs:
         with:
           githubToken: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Upload test results
+      - name: Upload test results ⬆️
         uses: actions/upload-artifact@v2
         if: always()
         with:
           name: Test results
           path: artifacts
 
-      # Build
       - name: Build WebGL 🛠️
         uses: game-ci/unity-builder@v2
         env:
@@ -60,7 +58,8 @@ jobs:
           targetPlatform: WebGL
           allowDirtyBuild: true
 
-      - uses: actions/cache/save@v3
+      - name: Cache library 💰
+        uses: actions/cache/save@v3
         with:
           path: ./Library
           key: Library-${{ github.ref }}
