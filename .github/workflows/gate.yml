@@ -13,18 +13,27 @@ jobs:
     name: Test and Build
     runs-on: ubuntu-latest
     steps:
+      # Check if library changed
+      - uses: dorny/paths-filter@v2
+        id: changes
+        with:
+          filters: |
+            library:
+              - 'Library/**'
+
       # Checkout
       - name: Checkout repository
         uses: actions/checkout@v2
         with:
           lfs: true
 
+      # get library from cache if it didn't change
       - name: Get Library from Cache 💰
-        uses: actions/cache@v2
+        if: steps.changes.outputs.library == 'false'
+        uses: actions/cache@v3
         with:
           path: ./Library
-          key: Library-${{ github.sha }}
-          restore-keys: Library-
+          key: Library-${{ github.ref }}
 
       - name: Test 🧪
         uses: game-ci/unity-test-runner@v2
@@ -50,3 +59,8 @@ jobs:
         with:
           targetPlatform: WebGL
           allowDirtyBuild: true
+
+      - uses: actions/cache/save@v3
+        with:
+          path: ./Library
+          key: Library-${{ github.ref }}

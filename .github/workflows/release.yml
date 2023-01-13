@@ -14,18 +14,27 @@ jobs:
     name: Build 🛠️
     runs-on: ubuntu-latest
     steps:
+      # Check if library changed
+      - uses: dorny/paths-filter@v2
+        id: changes
+        with:
+          filters: |
+            library:
+              - 'Library/**'
+
       # Checkout
       - name: Checkout repository 👀
         uses: actions/checkout@v2
         with:
           lfs: true
 
+      # Get library from path if library didn't change
       - name: Get Library from Cache 💰
+        if: steps.changes.outputs.library == 'false'
         uses: actions/cache@v2
         with:
           path: ./Library
-          key: Library-${{ github.sha }}
-          restore-keys: Library-
+          key: Library-Main
 
       # Build
       - name: Build 🛠️
@@ -45,3 +54,8 @@ jobs:
           folder: build/WebGL/WebGL
           commit-message: Deploy
           single-commit: true
+
+      - uses: actions/cache/save@v3
+        with:
+          path: ./Library
+          key: Library-Main
