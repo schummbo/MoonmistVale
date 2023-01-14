@@ -1,3 +1,5 @@
+using System.Linq;
+using Assets.Scripts;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -32,17 +34,9 @@ public class ToolsCharacterController : MonoBehaviour
         {
             var position = rigidBody2D.position + characterController.LastDirection * offsetDistance;
 
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(position, sizeOfInteractableArea);
+            var toolHittables = Utilities.GetBehaviorsNearPosition<ToolHittableBase>(position, sizeOfInteractableArea);
 
-            foreach (var collider in colliders)
-            {
-                var hit = collider.GetComponent<ToolHittableBase>();
-
-                if (hit != null)
-                {
-                    hit.Hit();
-                }
-            }
+            toolHittables.FirstOrDefault()?.Hit();
         }
     }
 }
