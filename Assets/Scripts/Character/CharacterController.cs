@@ -8,9 +8,6 @@ public class CharacterController : MonoBehaviour
 {
     private Rigidbody2D rigidbody2d;
     private Animator animator;
-    private PlayerInput playerInput;
-    private InputAction moveAction;
-    private InputAction toggleRunAction;
 
     [SerializeField] public float WalkSpeed = 2f;
     [SerializeField] public float RunSpeed = 4f;
@@ -18,48 +15,32 @@ public class CharacterController : MonoBehaviour
     [SerializeField] public float CurrentSpeed;
 
     private Vector2 motionVector;
-    public  Vector2 LastDirection;
+    public Vector2 LastDirection;
 
     void Awake()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        playerInput = GetComponent<PlayerInput>();
-
-        moveAction = playerInput.actions["Move"];
-        toggleRunAction = playerInput.actions["ToggleRun"];
     }
 
     void OnEnable()
     {
-        moveAction.performed += MoveStart;
-        moveAction.canceled += MoveStop;
-
-        toggleRunAction.performed += RunStart;
-        toggleRunAction.canceled += RunStop;
-
         CurrentSpeed = WalkSpeed;
     }
 
-    void OnDisable()
+    public void OnToggleRun(InputAction.CallbackContext obj)
     {
-        moveAction.performed -= MoveStart;
-        moveAction.canceled -= MoveStop;
+        if (obj.performed)
+        {
+            CurrentSpeed = RunSpeed;
+            animator.speed = 2f;
+        }
 
-        toggleRunAction.performed -= RunStart;
-        toggleRunAction.canceled -= RunStop;
-    }
-
-    private void RunStop(InputAction.CallbackContext obj)
-    {
-        CurrentSpeed = WalkSpeed;
-        animator.speed = 1;
-    }
-
-    private void RunStart(InputAction.CallbackContext obj)
-    {
-        CurrentSpeed = RunSpeed;
-        animator.speed = 2f;
+        if (obj.canceled)
+        {
+            CurrentSpeed = WalkSpeed;
+            animator.speed = 1;
+        }
     }
 
     void Update()
@@ -83,17 +64,20 @@ public class CharacterController : MonoBehaviour
         }
     }
 
-    public void MoveStart(InputAction.CallbackContext context)
+    public void OnMove(InputAction.CallbackContext context)
     {
-        motionVector = context.ReadValue<Vector2>();
+        if (context.performed)
+        {
+            motionVector = context.ReadValue<Vector2>();
+        }
+
+        if (context.canceled)
+        {
+            LastDirection = motionVector;
+            motionVector = new Vector2(0, 0);
+        }
     }
 
-    private void MoveStop(InputAction.CallbackContext context)
-    {
-        LastDirection = motionVector;
-        motionVector = new Vector2(0, 0);
-    }
-    
 
     void FixedUpdate()
     {

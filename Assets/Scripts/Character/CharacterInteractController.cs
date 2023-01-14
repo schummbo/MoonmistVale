@@ -5,8 +5,6 @@ public class CharacterInteractController : MonoBehaviour
 {
     private CharacterController characterController;
     private Rigidbody2D rigidBody2D;
-    private PlayerInput playerInput;
-    private InputAction interactAction;
     private Character character;
     [SerializeField] public HighlightController highlightController;
 
@@ -15,21 +13,8 @@ public class CharacterInteractController : MonoBehaviour
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
-        playerInput = GetComponent<PlayerInput>();
         rigidBody2D = GetComponent<Rigidbody2D>();
         character = GetComponent<Character>();
-
-        interactAction = playerInput.actions["Interact"];
-    }
-
-    private void OnEnable()
-    {
-        interactAction.performed += Interact;
-    }
-
-    private void OnDisable()
-    {
-        interactAction.performed -= Interact;
     }
 
     private void Update()
@@ -57,19 +42,22 @@ public class CharacterInteractController : MonoBehaviour
         highlightController.Hide();
     }
 
-    private void Interact(InputAction.CallbackContext context)
+    public void OnInteract(InputAction.CallbackContext context)
     {
-        var position = rigidBody2D.position + characterController.LastDirection * offsetDistance;
-
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(position, sizeOfInteractableArea);
-
-        foreach (var collider in colliders)
+        if (context.performed)
         {
-            var interactable = collider.GetComponent<InteractableBase>();
+            var position = rigidBody2D.position + characterController.LastDirection * offsetDistance;
 
-            if (interactable != null)
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(position, sizeOfInteractableArea);
+
+            foreach (var collider in colliders)
             {
-                interactable.Interact(character);
+                var interactable = collider.GetComponent<InteractableBase>();
+
+                if (interactable != null)
+                {
+                    interactable.Interact(character);
+                }
             }
         }
     }
