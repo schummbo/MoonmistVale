@@ -98,6 +98,8 @@ public class CharacterControllerTests : InputTestFixture
     {
         var prefab = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/MainCharacter.prefab");
 
+
+
         prefab = GameObject.Instantiate(prefab, originalPosition, Quaternion.identity);
         return prefab;
     }
