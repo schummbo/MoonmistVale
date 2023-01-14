@@ -8,90 +8,90 @@ using UnityEngine.TestTools;
 
 public class CharacterControllerTests : InputTestFixture
 {
-    //[UnityTest]
-    //public IEnumerator PlayerMovesUp()
-    //{
-    //    var originalPosition = new Vector3(0, 0);
+    [UnityTest]
+    public IEnumerator PlayerMovesUp()
+    {
+        var originalPosition = new Vector3(0, 0);
 
-    //    var keyboard = InputSystem.AddDevice<Keyboard>();
+        var keyboard = InputSystem.AddDevice<Keyboard>();
 
-    //    var prefab = CreatePlayer(originalPosition);
+        var prefab = CreatePlayer(originalPosition);
 
-    //    MovePlayer(keyboard.wKey);
+        MovePlayer(keyboard.wKey);
 
-    //    yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1f);
 
-    //    var newPosition = prefab.transform.position;
+        var newPosition = prefab.transform.position;
 
-    //    Assert.Greater(newPosition.y, originalPosition.y);
+        Assert.Greater(newPosition.y, originalPosition.y);
 
-    //    GameObject.Destroy(prefab);
-    //}
+        GameObject.Destroy(prefab);
+    }
 
-    //[UnityTest]
-    //public IEnumerator PlayerMovesLeft()
-    //{
-    //    var originalPosition = new Vector3(0, 0);
+    [UnityTest]
+    public IEnumerator PlayerMovesLeft()
+    {
+        var originalPosition = new Vector3(0, 0);
 
-    //    var keyboard = InputSystem.AddDevice<Keyboard>();
+        var keyboard = InputSystem.AddDevice<Keyboard>();
 
-    //    var prefab = CreatePlayer(originalPosition);
+        var prefab = CreatePlayer(originalPosition);
 
-    //    MovePlayer(keyboard.aKey);
+        MovePlayer(keyboard.aKey);
 
-    //    yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1f);
 
-    //    var newPosition = prefab.transform.position;
+        var newPosition = prefab.transform.position;
 
-    //    Assert.Less(newPosition.x, originalPosition.x);
+        Assert.Less(newPosition.x, originalPosition.x);
 
-    //    GameObject.Destroy(prefab);
-    //}
+        GameObject.Destroy(prefab);
+    }
 
-    //[UnityTest]
-    //public IEnumerator PlayerMovesRight()
-    //{
-    //    var originalPosition = new Vector3(0, 0);
+    [UnityTest]
+    public IEnumerator PlayerMovesRight()
+    {
+        var originalPosition = new Vector3(0, 0);
 
-    //    var keyboard = InputSystem.AddDevice<Keyboard>();
+        var keyboard = InputSystem.AddDevice<Keyboard>();
 
-    //    var prefab = CreatePlayer(originalPosition);
+        var prefab = CreatePlayer(originalPosition);
 
-    //    MovePlayer(keyboard.dKey);
+        MovePlayer(keyboard.dKey);
 
-    //    yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1f);
 
-    //    var newPosition = prefab.transform.position;
+        var newPosition = prefab.transform.position;
 
-    //    Assert.Greater(newPosition.x, originalPosition.x);
+        Assert.Greater(newPosition.x, originalPosition.x);
 
-    //    GameObject.Destroy(prefab);
-    //}
+        GameObject.Destroy(prefab);
+    }
 
-    //[UnityTest]
-    //public IEnumerator PlayerMovesDown()
-    //{
-    //    var originalPosition = new Vector3(0, 0);
+    [UnityTest]
+    public IEnumerator PlayerMovesDown()
+    {
+        var originalPosition = new Vector3(0, 0);
 
-    //    var keyboard = InputSystem.AddDevice<Keyboard>();
+        var keyboard = InputSystem.AddDevice<Keyboard>();
 
-    //    var prefab = CreatePlayer(originalPosition);
+        var prefab = CreatePlayer(originalPosition);
 
-    //    MovePlayer(keyboard.sKey);
+        MovePlayer(keyboard.sKey);
 
-    //    yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1f);
 
-    //    var newPosition = prefab.transform.position;
+        var newPosition = prefab.transform.position;
 
-    //    Assert.Less(newPosition.y, originalPosition.y);
+        Assert.Less(newPosition.y, originalPosition.y);
 
-    //    GameObject.Destroy(prefab);
-    //}
+        GameObject.Destroy(prefab);
+    }
 
-    //private void MovePlayer(KeyControl key)
-    //{
-    //    Set(key, 1, 2);
-    //}
+    private void MovePlayer(KeyControl key)
+    {
+        Set(key, 1, 2);
+    }
 
     private static GameObject CreatePlayer(Vector3 originalPosition)
     {
