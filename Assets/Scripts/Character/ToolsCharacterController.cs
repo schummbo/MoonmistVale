@@ -1,3 +1,5 @@
+using System.Linq;
+using Assets.Scripts;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -5,7 +7,6 @@ public class ToolsCharacterController : MonoBehaviour
 {
     private CharacterController characterController;
     private Rigidbody2D rigidBody2D;
-    private PlayerInput playerInput;
 
     private InputAction useToolAction;
 
@@ -16,21 +17,8 @@ public class ToolsCharacterController : MonoBehaviour
     {
         characterController = GetComponent<CharacterController>();
         rigidBody2D = GetComponent<Rigidbody2D>();
-        playerInput = GetComponent<PlayerInput>();
-
-        useToolAction = playerInput.actions["UseTool"];
     }
 
-    void OnEnable()
-    {
-        useToolAction.performed += UseTool;
-    }
-
-    void OnDisable()
-    {
-        useToolAction.performed -= UseTool;
-    }
-    
     /// <summary>
     /// Checks the direction the character is facing.
     /// If any colliders in the area in front of the character has
@@ -40,20 +28,15 @@ public class ToolsCharacterController : MonoBehaviour
     ///
     /// For example, a tree will split into x number of logs.
     /// </summary>
-    private void UseTool(InputAction.CallbackContext context)
+    public void OnUseTool(InputAction.CallbackContext context)
     {
-        var position = rigidBody2D.position + characterController.LastDirection * offsetDistance;
-
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(position, sizeOfInteractableArea);
-
-        foreach (var collider in colliders)
+        if (context.performed)
         {
-            var hit = collider.GetComponent<ToolHittableBase>();
+            var position = rigidBody2D.position + characterController.LastDirection * offsetDistance;
 
-            if (hit != null)
-            {
-                hit.Hit();
-            }
+            var toolHittables = Utilities.GetBehaviorsNearPosition<ToolHittableBase>(position, sizeOfInteractableArea);
+
+            toolHittables.FirstOrDefault()?.Hit();
         }
     }
 }

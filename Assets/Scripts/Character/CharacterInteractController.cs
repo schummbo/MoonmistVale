@@ -1,3 +1,5 @@
+using System.Linq;
+using Assets.Scripts;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -5,72 +7,54 @@ public class CharacterInteractController : MonoBehaviour
 {
     private CharacterController characterController;
     private Rigidbody2D rigidBody2D;
-    private PlayerInput playerInput;
-    private InputAction interactAction;
     private Character character;
-    [SerializeField] public HighlightController highlightController;
+    private const float OffsetDistance = 1f;
+    private const float SizeOfInteractableArea = .5f;
 
-    [SerializeField] private float offsetDistance = 1f;
-    [SerializeField] private float sizeOfInteractableArea = 1.2f;
+    [SerializeField] public HighlightController highlightController;
+    
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
-        playerInput = GetComponent<PlayerInput>();
         rigidBody2D = GetComponent<Rigidbody2D>();
         character = GetComponent<Character>();
-
-        interactAction = playerInput.actions["Interact"];
-    }
-
-    private void OnEnable()
-    {
-        interactAction.performed += Interact;
-    }
-
-    private void OnDisable()
-    {
-        interactAction.performed -= Interact;
     }
 
     private void Update()
     {
-        CheckForInteractables();
+        HighlightNearbyInteractables();
     }
 
-    private void CheckForInteractables()
+    public void OnInteract(InputAction.CallbackContext context)
     {
-        var position = rigidBody2D.position + characterController.LastDirection * offsetDistance;
-
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(position, sizeOfInteractableArea);
-        
-        foreach (var collider in colliders)
+        if (context.performed)
         {
-            var interactable = collider.GetComponent<InteractableBase>();
-
-            if (interactable != null && interactable.IsInteractable)
-            {
-                highlightController.Highlight(interactable.gameObject);
-                return;
-            }
+            var interactable = GetNearbyInteractable();
+            interactable?.Interact(character);
         }
-
-        highlightController.Hide();
     }
 
-    private void Interact(InputAction.CallbackContext context)
+    private void HighlightNearbyInteractables()
     {
-        var position = rigidBody2D.position + characterController.LastDirection * offsetDistance;
+        var firstInteractable = GetNearbyInteractable();
 
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(position, sizeOfInteractableArea);
-
-        foreach (var collider in colliders)
+        if (firstInteractable != null)
         {
-            var interactable = collider.GetComponent<InteractableBase>();
-
-            if (interactable != null)
-            {
-                interactable.Interact(character);
-            }
+            highlightController.Highlight(firstInteractable.gameObject);
         }
+        else
+        {
+            highlightController.Hide();
+        }
+    }
+
+    private InteractableBase GetNearbyInteractable()
+    {
+        var position = rigidBody2D.position + characterController.LastDirection * OffsetDistance;
+
+        var interactables = Utilities.GetBehaviorsNearPosition<InteractableBase>(position, SizeOfInteractableArea);
+
+        var firstInteractable = interactables.FirstOrDefault(i => i.IsInteractable);
+        return firstInteractable;
     }
 }
