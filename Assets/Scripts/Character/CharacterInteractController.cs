@@ -8,7 +8,7 @@ public class CharacterInteractController : MonoBehaviour
     private PlayerInput playerInput;
     private InputAction interactAction;
     private Character character;
-    [SerializeField] HighlightController highlightController;
+    [SerializeField] public HighlightController highlightController;
 
     [SerializeField] private float offsetDistance = 1f;
     [SerializeField] private float sizeOfInteractableArea = 1.2f;

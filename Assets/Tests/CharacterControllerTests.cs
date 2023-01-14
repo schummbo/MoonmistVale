@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using NUnit.Framework;
+using System.Collections;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -94,13 +93,16 @@ public class CharacterControllerTests : InputTestFixture
     //    Set(key, 1, 2);
     //}
 
-    //private static GameObject CreatePlayer(Vector3 originalPosition)
-    //{
-    //    var prefab = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/MainCharacter.prefab");
+    private static GameObject CreatePlayer(Vector3 originalPosition)
+    {
+        var prefab = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/MainCharacter.prefab");
+        prefab = GameObject.Instantiate(prefab, originalPosition, Quaternion.identity);
 
-
-
-    //    prefab = GameObject.Instantiate(prefab, originalPosition, Quaternion.identity);
-    //    return prefab;
-    //}
+        prefab.GetComponent<CharacterInteractController>().highlightController = new HighlightController
+        {
+            Highlighter = new GameObject()
+        };
+        
+        return prefab;
+    }
 }
