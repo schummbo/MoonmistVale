@@ -1,3 +1,4 @@
+using Assets.Scripts.NotificationSystem;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
@@ -22,7 +23,10 @@ public class DayTimeController : MonoBehaviour
 
     [SerializeField] Light2D globalLight;
 
+    private DayNightCycleState? previousDayNightCycleState;
+
     private int days = 1;
+
 
     void Awake()
     {
@@ -31,8 +35,12 @@ public class DayTimeController : MonoBehaviour
 
     void Update()
     {
-        SetDaylightColor();
+        var valueOnDaylightCurve = nightTimeCurve.Evaluate(Hours);
+
+        SetDaylightColor(valueOnDaylightCurve);
         SetDayAndTime();
+
+        NotifyDayOrNight(valueOnDaylightCurve);
 
         currentTimeSeconds += Time.deltaTime * timeScale;
 
@@ -42,10 +50,32 @@ public class DayTimeController : MonoBehaviour
         }
     }
 
-    private void SetDaylightColor()
+    private void NotifyDayOrNight(float valueOnDaylightCurve)
     {
-        var valueOnDaylightCurve = nightTimeCurve.Evaluate(Hours);
+        const float tolerance = .01f;
 
+        DayNightCycleState? state = null;
+
+        if (Mathf.Abs(0 - valueOnDaylightCurve) < tolerance)
+        {
+            state = DayNightCycleState.Day;
+        }
+
+        if (Mathf.Abs(1 - valueOnDaylightCurve) < tolerance)
+        {
+            state = DayNightCycleState.Night;
+        }
+
+        if (state.HasValue && state != previousDayNightCycleState)
+        {
+            BroadcastMessage(IDayNightCycleChangeHandler.ChangeHandlerName, new DayNightChangeArgs(state.Value));
+
+            previousDayNightCycleState = state;
+        }
+    }
+
+    private void SetDaylightColor(float valueOnDaylightCurve)
+    {
         globalLight.color = GetDaylightColor(valueOnDaylightCurve);
     }
 
