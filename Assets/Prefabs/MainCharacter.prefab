@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 6267490706913068388}
   - component: {fileID: 2125635113405214136}
   - component: {fileID: 6350058310328638585}
+  - component: {fileID: 7969952559720272414}
   m_Layer: 0
   m_Name: MainCharacter
   m_TagString: Untagged
@@ -238,6 +239,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: eb3dce58-a780-405d-b68f-f8538c594af8
     m_ActionName: Player/Interact[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7969952559720272414}
+        m_TargetAssemblyTypeName: InventoryController, GameAssembly
+        m_MethodName: OnToggleInventory
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 8a691348-fc82-41cd-8fd7-73ec97ea0985
+    m_ActionName: Player/ToggleInventory[/Keyboard/i]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -308,5 +325,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   highlightController: {fileID: 0}
-  offsetDistance: 1
-  sizeOfInteractableArea: 1.2
+--- !u!114 &7969952559720272414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4031528606328755504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef8297e73b9e05144900001c68963df7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Panel: {fileID: 0}

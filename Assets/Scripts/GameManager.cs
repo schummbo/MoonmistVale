@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
 
     public GameObject Player;
 
+    [SerializeField] public ItemContainer InventoryContainer;
+
     private void Awake()
     {
         Instance = this;
