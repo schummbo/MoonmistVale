@@ -11,6 +11,8 @@ public class PickUpItem : MonoBehaviour
     [SerializeField] float speed = 5f;
     [SerializeField] float pickUpDistance = 1.5f;
     [SerializeField] float ttl = 10f;
+    public Item item;
+    public int count = 1;
 
     void Awake()
     {
@@ -38,6 +40,7 @@ public class PickUpItem : MonoBehaviour
         if (distance < .1)
         {
             Destroy(this.gameObject);
+            GameManager.Instance.InventoryContainer?.Add(item, count);
         }
     }
 
