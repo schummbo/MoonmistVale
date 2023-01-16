@@ -10,7 +10,6 @@ public class InventoryPanel : MonoBehaviour
     void Start()
     {
         SetIndexes();
-        Show();
     }
 
     void OnEnable()
