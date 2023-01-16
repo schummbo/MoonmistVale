@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SideCharacter_IdleDown
+  m_Name: NPC_Idle_Down
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,7 +20,7 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 2077518712, guid: 868904dc13854ba43911ff9498c78db2, type: 3}
+      value: {fileID: 462287974, guid: 522f24b38da3fa948a17797cfc9e416a, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -40,7 +40,7 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 2077518712, guid: 868904dc13854ba43911ff9498c78db2, type: 3}
+    - {fileID: 462287974, guid: 522f24b38da3fa948a17797cfc9e416a, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
