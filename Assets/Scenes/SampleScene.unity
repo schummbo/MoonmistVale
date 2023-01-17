@@ -15979,8 +15979,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68c40d1ee640ba74193c8dc22787679f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DayStartTime: 7
-  timeScale: 60
+  DayStartTime: 6
+  timeScale: 1000
   nightColor: {r: 0.24504568, g: 0.28114688, b: 0.5566038, a: 0}
   dayColor: {r: 1, g: 1, b: 1, a: 0}
   nightTimeCurve:
