@@ -2,9 +2,10 @@ using UnityEngine;
 
 public class TreeToolHittable : ToolHittableBase
 { 
-    [SerializeField] GameObject pickUpDrop;
     [SerializeField] int dropCount = 5;
-    [SerializeField]  float spread = 0.7f;
+    [SerializeField] int amountPerDrop = 1;
+    [SerializeField] float spread = 0.7f;
+    [SerializeField] private Item item;
 
 
     /// <summary>
@@ -19,8 +20,7 @@ public class TreeToolHittable : ToolHittableBase
             positionOfLog.x += spread * Random.value - spread / 2;
             positionOfLog.y += spread * Random.value - spread / 2;
 
-            var log = Instantiate(pickUpDrop);
-            log.transform.position = positionOfLog;
+            ItemSpawnManager.Instance.SpawnItem(positionOfLog, item, amountPerDrop);
         }
         
         Destroy(gameObject);

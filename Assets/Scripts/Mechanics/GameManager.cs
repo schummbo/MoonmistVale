@@ -8,7 +8,8 @@ public class GameManager : MonoBehaviour
 
     public GameObject Player;
 
-    [SerializeField] public ItemContainer InventoryContainer;
+    public ItemContainer InventoryContainer;
+    public ItemDragDropController ItemDragDropController;
 
     private void Awake()
     {

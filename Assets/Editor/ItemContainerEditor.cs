@@ -14,8 +14,7 @@ public class ItemContainerEditor : Editor
         {
             foreach (var containerItemSlot in container.ItemSlots)
             {
-                containerItemSlot.Item = null;
-                containerItemSlot.Count = 0;
+                containerItemSlot.Clear();
             }
         }
 

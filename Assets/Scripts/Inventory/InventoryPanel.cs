@@ -25,7 +25,7 @@ public class InventoryPanel : MonoBehaviour
         }
     }
 
-    private void Show()
+    public void Show()
     {
         for (int i = 0; i < inventory.ItemSlots.Count; i++)
         {
@@ -40,11 +40,5 @@ public class InventoryPanel : MonoBehaviour
                 inventoryButtons[i].Clean();
             }
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

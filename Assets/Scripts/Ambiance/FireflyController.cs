@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Assets.Scripts.NotificationSystem;
 using UnityEngine;
 
-public class FIreflyController : MonoBehaviour, IDayNightCycleChangeHandler
+public class FireflyController : MonoBehaviour, IDayNightCycleChangeHandler
 {
     [SerializeField] private List<FireflyMovement> fireflies;
 
