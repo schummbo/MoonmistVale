@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6498893611768770579}
   - component: {fileID: 6498893611768770578}
   m_Layer: 0
-  m_Name: TreeLog
+  m_Name: PickupItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -100,5 +100,5 @@ MonoBehaviour:
   speed: 5
   pickUpDistance: 1.5
   ttl: 10
-  item: {fileID: 11400000, guid: 8512eec9bfdda8e4ab93e0dffe3b130c, type: 2}
+  item: {fileID: 0}
   count: 1

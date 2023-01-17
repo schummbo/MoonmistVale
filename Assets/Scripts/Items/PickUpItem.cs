@@ -11,22 +11,24 @@ public class PickUpItem : MonoBehaviour
     [SerializeField] float speed = 5f;
     [SerializeField] float pickUpDistance = 1.5f;
     [SerializeField] float ttl = 10f;
+    private SpriteRenderer spriteRender;
     public Item item;
     public int count = 1;
 
     void Awake()
     {
         player = GameManager.Instance.Player.transform;
+        spriteRender = GetComponent<SpriteRenderer>();
     }
 
     void Update()
     {
         ttl -= Time.deltaTime;
 
-        if (ttl <= 0)
-        {
-            Destroy(this.gameObject);
-        }
+        //if (ttl <= 0)
+        //{
+        //    Destroy(this.gameObject);
+        //}
 
         float distance = Vector2.Distance(transform.position, player.position);
 
@@ -42,6 +44,14 @@ public class PickUpItem : MonoBehaviour
             Destroy(this.gameObject);
             GameManager.Instance.InventoryContainer?.Add(item, count);
         }
+    }
+
+    public void Set(Item item, int count)
+    {
+        this.item = item;
+        this.count = count;
+
+        spriteRender.sprite = item.Icon;
     }
 
 }
