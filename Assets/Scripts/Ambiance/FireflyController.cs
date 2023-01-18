@@ -1,28 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
 using Assets.Scripts.NotificationSystem;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class FireflyController : MonoBehaviour, IDayNightCycleChangeHandler
 {
-    [SerializeField] private List<FireflyMovement> fireflies;
-
+    [SerializeField] private List<Firefly> fireflies;
 
     public void HandleDayNightCycleChange(DayNightChangeArgs args)
     {
         if (args.State == DayNightCycleState.Night)
         {
-            foreach (var fireflyMovement in fireflies)
+            foreach (var firefly in fireflies)
             {
-                fireflyMovement.gameObject.SetActive(true);
+                firefly.TurnOn();
             }
         }
 
         if (args.State == DayNightCycleState.Day)
         {
-            foreach (var fireflyMovement in fireflies)
+            foreach (var firefly in fireflies)
             {
-                fireflyMovement.gameObject.SetActive(false);
+                firefly.TurnOff();
             }
         }
     }

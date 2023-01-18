@@ -1,6 +1,8 @@
+using Assets.Scripts.Ambiance;
 using UnityEngine;
 
-public class FireflyMovement : MonoBehaviour
+[RequireComponent(typeof(RandomLight))]
+public class Firefly : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = .2f;
     [SerializeField] private float frequency = .2f;
@@ -10,15 +12,24 @@ public class FireflyMovement : MonoBehaviour
 
     [SerializeField] private int floatDirection;
 
+    private RandomLight buttLight;
+
     private Vector2 movePos;
     private Vector2 startPos;
 
     private float currentTime;
     private float nextDirectionChange;
 
+    private bool isTurningOff;
+
     void Start()
     {
         startPos = this.transform.position;
+    }
+
+    void Awake()
+    {
+        buttLight = GetComponent<RandomLight>();
     }
 
     void OnEnable()
@@ -30,6 +41,15 @@ public class FireflyMovement : MonoBehaviour
     {
         CheckIfDirectionChange();
         Move();
+
+        if (isTurningOff)
+        {
+            if (!buttLight.IsOn)
+            {
+                isTurningOff = false;
+                this.gameObject.SetActive(false);
+            }
+        }
     }
 
     private void CheckIfDirectionChange()
@@ -60,5 +80,17 @@ public class FireflyMovement : MonoBehaviour
         }
 
         transform.position = new Vector2(movePos.x, movePos.y);
+    }
+
+    public void TurnOn()
+    {
+        this.gameObject.SetActive(true);
+        this.buttLight.TurnOn(true);
+    }
+
+    public void TurnOff()
+    {
+        this.buttLight.TurnOff(true);
+        isTurningOff = true;
     }
 }
