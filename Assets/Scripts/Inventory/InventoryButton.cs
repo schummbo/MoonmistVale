@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -8,8 +7,14 @@ public class InventoryButton : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField] Image icon;
     [SerializeField] Text amount;
+    [SerializeField] Image selectedImage;
 
     int index;
+
+    public void Select(bool isSelected)
+    {
+        selectedImage.gameObject.SetActive(isSelected);
+    }
 
     public void SetIndex(int index)
     {
@@ -41,10 +46,6 @@ public class InventoryButton : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        var inventory = GameManager.Instance.InventoryContainer;
-
-        GameManager.Instance.ItemDragDropController.OnClick(inventory.ItemSlots[index]);
-
-        transform.parent.GetComponent<InventoryPanel>().Show();
+        this.GetComponentInParent<ItemPanelBase>().OnClick(this.index);
     }
 }

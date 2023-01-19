@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -5,6 +6,8 @@ using UnityEngine;
 public class ItemContainer : ScriptableObject
 {
     public List<ItemSlot> ItemSlots;
+
+    public Action OnChange;
 
     public void Add(Item item, int count = 1)
     {
@@ -31,5 +34,7 @@ public class ItemContainer : ScriptableObject
                 emptySlot.Item = item;
             }
         }
+
+        OnChange?.Invoke();
     }
 }
