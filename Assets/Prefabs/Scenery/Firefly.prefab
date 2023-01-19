@@ -151,7 +151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   randomLight: {fileID: 8238303757565757530}
   randomMin: 0
-  randomMax: 7
+  randomMax: 15
 --- !u!1 &8238303757565757476
 GameObject:
   m_ObjectHideFlags: 0
