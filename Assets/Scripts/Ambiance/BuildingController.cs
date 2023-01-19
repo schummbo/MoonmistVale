@@ -10,7 +10,7 @@ namespace Assets.Scripts.Ambiance
 
         public void HandleDayNightCycleChange(DayNightChangeArgs args)
         {
-            if (args.State == DayNightCycleState.Night)
+            if (args.State == DayNightCycleState.Evening)
             {
                 foreach (var building in buildings)
                 {
@@ -18,7 +18,7 @@ namespace Assets.Scripts.Ambiance
                 }
             }
 
-            if (args.State == DayNightCycleState.Day)
+            if (args.State == DayNightCycleState.Morning)
             {
                 foreach (var building in buildings)
                 {
