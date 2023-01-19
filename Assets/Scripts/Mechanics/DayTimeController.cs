@@ -61,7 +61,7 @@ public class DayTimeController : MonoBehaviour
             state = DayNightCycleState.Day;
         }
 
-        if (Mathf.Abs(.5f - valueOnDaylightCurve) < tolerance)
+        if (Mathf.Abs(.7f - valueOnDaylightCurve) < tolerance)
         {
             if (previousDayNightCycleState == DayNightCycleState.Night)
             {

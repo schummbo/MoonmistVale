@@ -8,7 +8,7 @@ public class FireflyController : MonoBehaviour, IDayNightCycleChangeHandler
 
     public void HandleDayNightCycleChange(DayNightChangeArgs args)
     {
-        if (args.State == DayNightCycleState.Night)
+        if (args.State == DayNightCycleState.Evening)
         {
             foreach (var firefly in fireflies)
             {
@@ -16,7 +16,7 @@ public class FireflyController : MonoBehaviour, IDayNightCycleChangeHandler
             }
         }
 
-        if (args.State == DayNightCycleState.Day)
+        if (args.State == DayNightCycleState.Morning)
         {
             foreach (var firefly in fireflies)
             {
