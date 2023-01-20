@@ -16540,6 +16540,7 @@ GameObject:
   - component: {fileID: 1018980945}
   - component: {fileID: 1018980948}
   - component: {fileID: 1018980949}
+  - component: {fileID: 1018980950}
   m_Layer: 5
   m_Name: Toolbar
   m_TagString: Untagged
@@ -16574,7 +16575,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 27}
-  m_SizeDelta: {x: 432, y: 48}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1018980945
 MonoBehaviour:
@@ -16596,10 +16597,10 @@ MonoBehaviour:
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 48, y: 48}
+  m_CellSize: {x: 40, y: 40}
   m_Spacing: {x: 0, y: 0}
-  m_Constraint: 0
-  m_ConstraintCount: 2
+  m_Constraint: 2
+  m_ConstraintCount: 1
 --- !u!114 &1018980946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16674,6 +16675,20 @@ MonoBehaviour:
   - {fileID: 860864072}
   - {fileID: 1604922213}
   - {fileID: 1000368997}
+--- !u!114 &1018980950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1018980942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 1
+  m_VerticalFit: 1
 --- !u!4 &1029784262 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4892180005726930149, guid: 6c5d598bbd03d5e4f896c41050ffc827, type: 3}
