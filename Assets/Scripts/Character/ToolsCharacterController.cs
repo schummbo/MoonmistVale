@@ -15,6 +15,10 @@ public class ToolsCharacterController : MonoBehaviour
     [SerializeField] private MarkerManager markerManager;
     [SerializeField] private TileMapReadController tileMapReadController;
 
+    private Vector2 previousMousePosition;
+    private float lastMouseMove;
+    private float timePassed;
+
     void Awake()
     {
         characterController = GetComponent<CharacterController>();
@@ -23,6 +27,22 @@ public class ToolsCharacterController : MonoBehaviour
 
     void Update()
     {
+        timePassed += Time.deltaTime;
+
+        if (previousMousePosition.Equals(Input.mousePosition))
+        {
+            if (timePassed > 3)
+            {
+                markerManager.IsMarking = false;
+            }
+        }
+        else
+        {
+            markerManager.IsMarking = true;
+            previousMousePosition = Input.mousePosition;
+            timePassed = 0;
+        }
+
         Mark();
     }
 

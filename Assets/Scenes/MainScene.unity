@@ -1576,7 +1576,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1658,6 +1658,7 @@ MonoBehaviour:
   markerTilemap: {fileID: 373119815}
   markerTile: {fileID: 11400000, guid: 7a8870db492dba643bdacd602c6b4058, type: 2}
   markedCell: {x: 0, y: 0, z: 0}
+  IsMarking: 0
 --- !u!1001 &386563474
 PrefabInstance:
   m_ObjectHideFlags: 0
