@@ -1,8 +1,7 @@
-using System.Linq;
 using Assets.Scripts;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Timeline;
 
 public class ToolsCharacterController : MonoBehaviour
 {
