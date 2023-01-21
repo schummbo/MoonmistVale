@@ -2,6 +2,7 @@ using Assets.Scripts;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Tilemaps;
 
 public class ToolsCharacterController : MonoBehaviour
 {
@@ -12,13 +13,17 @@ public class ToolsCharacterController : MonoBehaviour
 
     [SerializeField] private float offsetDistance = 1f;
     [SerializeField] private float sizeOfInteractableArea = 1.2f;
+    [SerializeField] private float maxSelectableDistance = 1.5f;
     [SerializeField] private MarkerManager markerManager;
     [SerializeField] private TileMapReadController tileMapReadController;
+    [SerializeField] private CropsManager cropsManager;
 
     private Vector2 previousMousePosition;
-    private float lastMouseMove;
     private float timePassed;
 
+
+    private Vector3Int selectedTilePosition;
+    private bool selectable;
     void Awake()
     {
         characterController = GetComponent<CharacterController>();
@@ -43,13 +48,33 @@ public class ToolsCharacterController : MonoBehaviour
             timePassed = 0;
         }
 
+        SelectTile();
+        CanSelectedCheck();
         Mark();
+    }
+
+    private void SelectTile()
+    {
+        selectedTilePosition = tileMapReadController.GetGridPosition(Input.mousePosition, true);
+    }
+
+    void CanSelectedCheck()
+    {
+        Vector2 characterPosition = this.transform.position;
+        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        selectable = Vector2.Distance(characterPosition, mousePosition) <= maxSelectableDistance;
+
+        if (markerManager.IsMarking)
+        {
+            markerManager.IsMarking = selectable;
+        }
+
     }
 
     private void Mark()
     {
-        var gridPosition = tileMapReadController.GetGridPosition(Input.mousePosition, true);
-        markerManager.markedCell = gridPosition;
+        markerManager.markedCell = selectedTilePosition;
     }
 
     /// <summary>
@@ -65,11 +90,56 @@ public class ToolsCharacterController : MonoBehaviour
     {
         if (context.performed)
         {
-            var position = rigidBody2D.position + characterController.LastDirection * offsetDistance;
+            if (!UseToolWorld())
+            {
+                UseToolGrid();
+            }
+        }
+    }
 
-            var toolHittables = Utilities.GetBehaviorsNearPosition<ToolHittableBase>(position, sizeOfInteractableArea);
+    private bool UseToolWorld() {
 
-            toolHittables.FirstOrDefault()?.Hit();
+        var position = rigidBody2D.position + characterController.LastDirection * offsetDistance;
+
+        var toolHittable = Utilities.GetBehaviorsNearPosition<ToolHittableBase>(position, sizeOfInteractableArea).FirstOrDefault();
+
+        if (toolHittable != null)
+        {
+            toolHittable.Hit();
+            return true;
+        }
+
+        return false;
+    }
+
+    public void UseToolGrid()
+    {
+        if (selectable)
+        {
+            TileBase tile = tileMapReadController.GetTileBase(selectedTilePosition);
+
+            if (tile == null)
+            {
+                return;
+            }
+
+            TileData tileData = tileMapReadController.GetTileData(tile);
+
+
+            if (tileData == null || !tileData.Plowable)
+            {
+                return;
+            }
+
+            if (cropsManager.Check(selectedTilePosition))
+            {
+                cropsManager.Seed(selectedTilePosition);
+            }
+            else
+            {
+                cropsManager.Plow(selectedTilePosition);
+            }
+            
         }
     }
 }
