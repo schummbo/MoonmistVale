@@ -2,6 +2,7 @@ using System.Linq;
 using Assets.Scripts;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Timeline;
 
 public class ToolsCharacterController : MonoBehaviour
 {
@@ -12,11 +13,24 @@ public class ToolsCharacterController : MonoBehaviour
 
     [SerializeField] private float offsetDistance = 1f;
     [SerializeField] private float sizeOfInteractableArea = 1.2f;
+    [SerializeField] private MarkerManager markerManager;
+    [SerializeField] private TileMapReadController tileMapReadController;
 
     void Awake()
     {
         characterController = GetComponent<CharacterController>();
         rigidBody2D = GetComponent<Rigidbody2D>();
+    }
+
+    void Update()
+    {
+        Mark();
+    }
+
+    private void Mark()
+    {
+        var gridPosition = tileMapReadController.GetGridPosition(Input.mousePosition, true);
+        markerManager.markedCell = gridPosition;
     }
 
     /// <summary>
