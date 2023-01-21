@@ -1,5 +1,5 @@
-using System.Linq;
 using Assets.Scripts;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,11 +12,44 @@ public class ToolsCharacterController : MonoBehaviour
 
     [SerializeField] private float offsetDistance = 1f;
     [SerializeField] private float sizeOfInteractableArea = 1.2f;
+    [SerializeField] private MarkerManager markerManager;
+    [SerializeField] private TileMapReadController tileMapReadController;
+
+    private Vector2 previousMousePosition;
+    private float lastMouseMove;
+    private float timePassed;
 
     void Awake()
     {
         characterController = GetComponent<CharacterController>();
         rigidBody2D = GetComponent<Rigidbody2D>();
+    }
+
+    void Update()
+    {
+        timePassed += Time.deltaTime;
+
+        if (previousMousePosition.Equals(Input.mousePosition))
+        {
+            if (timePassed > 3)
+            {
+                markerManager.IsMarking = false;
+            }
+        }
+        else
+        {
+            markerManager.IsMarking = true;
+            previousMousePosition = Input.mousePosition;
+            timePassed = 0;
+        }
+
+        Mark();
+    }
+
+    private void Mark()
+    {
+        var gridPosition = tileMapReadController.GetGridPosition(Input.mousePosition, true);
+        markerManager.markedCell = gridPosition;
     }
 
     /// <summary>
