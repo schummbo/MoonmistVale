@@ -24571,6 +24571,7 @@ GameObject:
   - component: {fileID: 1018980948}
   - component: {fileID: 1018980949}
   - component: {fileID: 1018980950}
+  - component: {fileID: 1018980951}
   m_Layer: 5
   m_Name: Toolbar
   m_TagString: Untagged
@@ -24719,6 +24720,72 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 1
   m_VerticalFit: 1
+--- !u!114 &1018980951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1018980942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: b9fbdca9615c9404bb46eedf7fef5b04, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: dec065c9-b7fb-4023-a0c9-034b64fe1e4f
+    m_ActionName: Player/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3bc6b089-422e-4c3d-b28f-c1257038a84d
+    m_ActionName: Player/ToggleRun[/Keyboard/leftShift]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 22d73cc1-9f8c-44b6-a73e-87ff3d8ffacc
+    m_ActionName: Player/UseTool[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: eb3dce58-a780-405d-b68f-f8538c594af8
+    m_ActionName: Player/Interact[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8a691348-fc82-41cd-8fd7-73ec97ea0985
+    m_ActionName: Player/ToggleInventory[/Keyboard/i]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1018980948}
+        m_TargetAssemblyTypeName: ToolbarController, Assembly-CSharp
+        m_MethodName: OnScroll
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: dc2f5165-105b-45e1-8a21-f35e310382df
+    m_ActionName: Player/ScrollToolbar[/Mouse/scroll/down,/Mouse/scroll/up]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &1020231986
 GameObject:
   m_ObjectHideFlags: 0
@@ -30085,6 +30152,10 @@ PrefabInstance:
       propertyPath: markerManager
       value: 
       objectReference: {fileID: 373119816}
+    - target: {fileID: 6267490706913068388, guid: 21a837aee31b21649ab4e6814afda3f0, type: 3}
+      propertyPath: selectableCellRadius
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6267490706913068388, guid: 21a837aee31b21649ab4e6814afda3f0, type: 3}
       propertyPath: tileMapReadController
       value: 

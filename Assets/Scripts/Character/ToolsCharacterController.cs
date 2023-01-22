@@ -13,7 +13,7 @@ public class ToolsCharacterController : MonoBehaviour
 
     [SerializeField] private float offsetDistance = 1f;
     [SerializeField] private float sizeOfInteractableArea = 1.2f;
-    [SerializeField] private float maxSelectableDistance = 1.5f;
+    [SerializeField] private int selectableCellRadius = 1;
     [SerializeField] private MarkerManager markerManager;
     [SerializeField] private TileMapReadController tileMapReadController;
     [SerializeField] private CropsManager cropsManager;
@@ -21,9 +21,9 @@ public class ToolsCharacterController : MonoBehaviour
     private Vector2 previousMousePosition;
     private float timePassed;
 
-
     private Vector3Int selectedTilePosition;
     private bool selectable;
+
     void Awake()
     {
         characterController = GetComponent<CharacterController>();
@@ -49,7 +49,7 @@ public class ToolsCharacterController : MonoBehaviour
         }
 
         SelectTile();
-        CanSelectedCheck();
+        CanSelectCheck();
         Mark();
     }
 
@@ -58,12 +58,13 @@ public class ToolsCharacterController : MonoBehaviour
         selectedTilePosition = tileMapReadController.GetGridPosition(Input.mousePosition, true);
     }
 
-    void CanSelectedCheck()
+    void CanSelectCheck()
     {
         Vector2 characterPosition = this.transform.position;
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        var nearbyCells = tileMapReadController.GetCellsAroundPosition(characterPosition, selectableCellRadius);
 
-        selectable = Vector2.Distance(characterPosition, mousePosition) <= maxSelectableDistance;
+        var mouseCell = tileMapReadController.GetGridPosition(Input.mousePosition, true);
+        selectable = nearbyCells.Any(cell => cell.Equals(mouseCell));
 
         if (markerManager.IsMarking)
         {
@@ -101,7 +102,7 @@ public class ToolsCharacterController : MonoBehaviour
 
         var position = rigidBody2D.position + characterController.LastDirection * offsetDistance;
 
-        var toolHittable = Utilities.GetBehaviorsNearPosition<ToolHittableBase>(position, sizeOfInteractableArea).FirstOrDefault();
+        var toolHittable = Utilities.GetObjectsNearPosition<ToolHittableBase>(position, sizeOfInteractableArea).FirstOrDefault();
 
         if (toolHittable != null)
         {
