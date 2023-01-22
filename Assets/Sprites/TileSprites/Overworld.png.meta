@@ -20487,7 +20487,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlowedDirt
+      name: Dirt1
       rect:
         serializedVersion: 2
         x: 16
@@ -22676,7 +22676,6 @@ TextureImporter:
       Overworld_770: -1924741541
       Overworld_1057: -290622243
       Overworld_570: 777269286
-      PlowedDirt: 1266862933
       Overworld_291: 1344938531
       Overworld_501: -1393769332
       Overworld_773: -1023402962
@@ -22732,14 +22731,14 @@ TextureImporter:
       Overworld_1049: 2000863122
       Overworld_896: 358238607
       Overworld_506: -1512552004
-      Overworld_653: -1094717057
       Overworld_939: 1489438408
-      Overworld_657: -508875171
+      Overworld_51: 1666472300
       Overworld_473: 359555390
-      Overworld_779: 1541856688
+      Overworld_657: -508875171
+      Overworld_767: 1702207437
       Overworld_375: 1877078397
       Overworld_688: 1619055356
-      Overworld_767: 1702207437
+      Overworld_779: 1541856688
       Overworld_858: 661633333
       Overworld_1034: -500713372
       Overworld_359: 1872098866
@@ -22747,7 +22746,7 @@ TextureImporter:
       Overworld_142: -1601117043
       Overworld_852: 927436804
       Overworld_594: -1495316307
-      Overworld_51: 1666472300
+      Overworld_653: -1094717057
       Overworld_679: -1106428619
       Overworld_927: 2067618595
       Overworld_912: 1406353494
@@ -22941,14 +22940,14 @@ TextureImporter:
       Overworld_94: -1821945444
       Overworld_285: 1592815420
       Overworld_1008: 70058287
-      Overworld_160: 852333469
       Overworld_873: 963049950
       Overworld_472: 1710925095
+      Overworld_424: 860883743
       Overworld_57: 1716076548
       Overworld_787: -245219444
+      Overworld_160: 852333469
       Overworld_47: 782091891
       Overworld_185: -948749462
-      Overworld_424: 860883743
       Overworld_410: 708378960
       Overworld_233: -284800962
       Overworld_260: 430668843
@@ -23011,6 +23010,7 @@ TextureImporter:
       Overworld_280: -247682829
       Overworld_566: 137013572
       Overworld_306: -966569395
+      Dirt1: 1266862933
       Overworld_764: 556527989
       Grass4: -1657252092
       Overworld_395: -1475412203
