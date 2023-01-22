@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ToolbarController : MonoBehaviour
 {
@@ -8,22 +9,25 @@ public class ToolbarController : MonoBehaviour
 
     public Action<int> OnChange;
 
-    void Update()
+    public void OnScroll(InputAction.CallbackContext obj)
     {
-        float delta = Input.mouseScrollDelta.y;
-
-        if (delta != 0)
+        if (obj.performed)
         {
-            if (delta > 0 && selectedTool < toolbarSize - 1)
+            var delta = obj.ReadValue<float>();
+
+            if (delta != 0)
             {
-                selectedTool += 1;
+                if (delta > 0 && selectedTool < toolbarSize - 1)
+                {
+                    selectedTool += 1;
+                }
+                else if (delta < 0 && selectedTool > 0)
+                {
+                    selectedTool -= 1;
+                }
+
+                OnChange?.Invoke(selectedTool);
             }
-            else if (delta < 0 && selectedTool > 0)
-            {
-                selectedTool -= 1;
-            }
-            
-            OnChange?.Invoke(selectedTool);
         }
     }
 
