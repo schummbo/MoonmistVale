@@ -50,7 +50,7 @@ public class CharacterInteractController : MonoBehaviour
 
     private InteractableBase GetNearbyInteractable()
     {
-        var position = rigidBody2D.position + characterController.LastDirection * OffsetDistance;
+        var position = rigidBody2D.position + characterController.MotionVector * OffsetDistance;
 
         var interactables = Utilities.GetObjectsNearPosition<InteractableBase>(position, SizeOfInteractableArea);
 

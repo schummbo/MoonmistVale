@@ -13,7 +13,8 @@ public class ToolsCharacterController : MonoBehaviour
     [SerializeField] private MarkerManager markerManager;
     [SerializeField] private TileMapReadController tileMapReadController;
     [SerializeField] private CropsManager cropsManager;
-    [SerializeField] private ToolbarController toolbarController; 
+    [SerializeField] private ToolbarController toolbarController;
+    private Animator animator;
 
     private Vector2 previousMousePosition;
     private float timePassed;
@@ -25,6 +26,7 @@ public class ToolsCharacterController : MonoBehaviour
     {
         characterController = GetComponent<CharacterController>();
         rigidBody2D = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -96,12 +98,13 @@ public class ToolsCharacterController : MonoBehaviour
 
     private bool UseToolWorld() 
     {
-        var position = rigidBody2D.position + characterController.LastDirection * offsetDistance;
+        var position = rigidBody2D.position + characterController.MotionVector * offsetDistance;
 
         Item item = toolbarController.GetSelectedTool();
 
         if (item != null && item.onAction != null)
         {
+            animator.SetTrigger("PerformAction");
             return item.onAction.OnApply(position);
         }
 
