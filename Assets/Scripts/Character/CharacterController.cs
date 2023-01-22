@@ -6,16 +6,16 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(PlayerInput))]
 public class CharacterController : MonoBehaviour
 {
-    private Rigidbody2D rigidbody2d;
-    private Animator animator;
-
     [SerializeField] public float WalkSpeed = 2f;
     [SerializeField] public float RunSpeed = 4f;
 
-    [SerializeField] public float CurrentSpeed;
+    public Vector2 MotionVector;
 
-    private Vector2 motionVector;
-    public Vector2 LastDirection;
+    private Rigidbody2D rigidbody2d;
+    private Animator animator;
+
+    private float currentSpeed;
+    private bool isMoving;
 
     void Awake()
     {
@@ -25,20 +25,20 @@ public class CharacterController : MonoBehaviour
 
     void OnEnable()
     {
-        CurrentSpeed = WalkSpeed;
+        currentSpeed = WalkSpeed;
     }
 
     public void OnToggleRun(InputAction.CallbackContext obj)
     {
         if (obj.performed)
         {
-            CurrentSpeed = RunSpeed;
+            currentSpeed = RunSpeed;
             animator.speed = 2f;
         }
 
         if (obj.canceled)
         {
-            CurrentSpeed = WalkSpeed;
+            currentSpeed = WalkSpeed;
             animator.speed = 1;
         }
     }
@@ -50,42 +50,42 @@ public class CharacterController : MonoBehaviour
 
     private void UpdateAnimation()
     {
-        if (motionVector != Vector2.zero)
-        {
-            animator.Play("MovementTree");
-            animator.SetFloat("Horizontal", motionVector.x);
-            animator.SetFloat("Vertical", motionVector.y);
-        }
-        else
-        {
-            animator.Play("IdleTree");
-            animator.SetFloat("Horizontal", LastDirection.x);
-            animator.SetFloat("Vertical", LastDirection.y);
-        }
+        animator.SetFloat("Horizontal", MotionVector.x);
+        animator.SetFloat("Vertical", MotionVector.y);
+        animator.SetBool("IsMoving", isMoving);
     }
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.started || context.performed)
         {
-            motionVector = context.ReadValue<Vector2>();
+            MotionVector = context.ReadValue<Vector2>();
+            isMoving = true;
         }
 
         if (context.canceled)
         {
-            LastDirection = motionVector;
-            motionVector = new Vector2(0, 0);
+            isMoving = false;
         }
     }
 
 
     void FixedUpdate()
     {
-        Move();
+        if (isMoving)
+            Move();
+        else
+            Stop();
     }
 
     private void Move()
     {
-        rigidbody2d.velocity = motionVector * CurrentSpeed;
+        rigidbody2d.velocity = MotionVector * currentSpeed;
     }
+
+    private void Stop()
+    {
+        rigidbody2d.velocity = Vector2.zero;
+    }
+
 }

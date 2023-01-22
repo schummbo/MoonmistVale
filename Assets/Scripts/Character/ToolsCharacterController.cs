@@ -1,4 +1,3 @@
-using Assets.Scripts;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -9,14 +8,13 @@ public class ToolsCharacterController : MonoBehaviour
     private CharacterController characterController;
     private Rigidbody2D rigidBody2D;
 
-    private InputAction useToolAction;
-
     [SerializeField] private float offsetDistance = 1f;
-    [SerializeField] private float sizeOfInteractableArea = 1.2f;
     [SerializeField] private int selectableCellRadius = 1;
     [SerializeField] private MarkerManager markerManager;
     [SerializeField] private TileMapReadController tileMapReadController;
     [SerializeField] private CropsManager cropsManager;
+    [SerializeField] private ToolbarController toolbarController;
+    private Animator animator;
 
     private Vector2 previousMousePosition;
     private float timePassed;
@@ -28,6 +26,7 @@ public class ToolsCharacterController : MonoBehaviour
     {
         characterController = GetComponent<CharacterController>();
         rigidBody2D = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -70,7 +69,6 @@ public class ToolsCharacterController : MonoBehaviour
         {
             markerManager.IsMarking = selectable;
         }
-
     }
 
     private void Mark()
@@ -98,16 +96,16 @@ public class ToolsCharacterController : MonoBehaviour
         }
     }
 
-    private bool UseToolWorld() {
+    private bool UseToolWorld() 
+    {
+        var position = rigidBody2D.position + characterController.MotionVector * offsetDistance;
 
-        var position = rigidBody2D.position + characterController.LastDirection * offsetDistance;
+        Item item = toolbarController.GetSelectedTool();
 
-        var toolHittable = Utilities.GetObjectsNearPosition<ToolHittableBase>(position, sizeOfInteractableArea).FirstOrDefault();
-
-        if (toolHittable != null)
+        if (item != null && item.onAction != null)
         {
-            toolHittable.Hit();
-            return true;
+            animator.SetTrigger("PerformAction");
+            return item.onAction.OnApply(position);
         }
 
         return false;

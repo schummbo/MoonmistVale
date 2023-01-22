@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d51f696b852d444d8e12044f1f28f99, type: 3}
-  m_Name: PlowableTiles
+  m_Script: {fileID: 11500000, guid: 59a4390ee31896944a9804e195ef1ecd, type: 3}
+  m_Name: Pickaxe
   m_EditorClassIdentifier: 
-  Tiles:
-  - {fileID: 11400000, guid: 191cd6f995f38e04eb5d1cd76e5293a1, type: 2}
-  Plowable: 1
+  Name: Pickaxe
+  Stackable: 0
+  Icon: {fileID: 865407164, guid: 65cd94ef18897d840baf987af0bceb67, type: 3}
+  onAction: {fileID: 11400000, guid: 2238d56c43e15d34298f1d17f596baba, type: 2}
