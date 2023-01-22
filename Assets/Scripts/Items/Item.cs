@@ -6,4 +6,5 @@ public class Item : ScriptableObject
     public string Name;
     public bool Stackable;
     public Sprite Icon;
+    public ToolActionBase onAction;
 }

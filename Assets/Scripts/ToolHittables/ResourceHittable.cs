@@ -1,11 +1,15 @@
+using System.Collections.Generic;
+using Assets.Scripts.ToolHittables;
 using UnityEngine;
 
-public class TreeToolHittable : ToolHittableBase
+[RequireComponent(typeof(BoxCollider2D))]
+public class ResourceHittable : ToolHittableBase
 { 
     [SerializeField] int dropCount = 5;
     [SerializeField] int amountPerDrop = 1;
     [SerializeField] float spread = 0.7f;
     [SerializeField] private Item item;
+    [SerializeField] private ResourceType resourceType;
 
 
     /// <summary>
@@ -24,5 +28,10 @@ public class TreeToolHittable : ToolHittableBase
         }
         
         Destroy(gameObject);
+    }
+
+    public override bool CanBeHit(List<ResourceType> hittableTypes)
+    {
+        return hittableTypes.Contains(this.resourceType);
     }
 }

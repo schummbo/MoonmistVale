@@ -1,4 +1,3 @@
-using Assets.Scripts;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -9,14 +8,12 @@ public class ToolsCharacterController : MonoBehaviour
     private CharacterController characterController;
     private Rigidbody2D rigidBody2D;
 
-    private InputAction useToolAction;
-
     [SerializeField] private float offsetDistance = 1f;
-    [SerializeField] private float sizeOfInteractableArea = 1.2f;
     [SerializeField] private int selectableCellRadius = 1;
     [SerializeField] private MarkerManager markerManager;
     [SerializeField] private TileMapReadController tileMapReadController;
     [SerializeField] private CropsManager cropsManager;
+    [SerializeField] private ToolbarController toolbarController; 
 
     private Vector2 previousMousePosition;
     private float timePassed;
@@ -70,7 +67,6 @@ public class ToolsCharacterController : MonoBehaviour
         {
             markerManager.IsMarking = selectable;
         }
-
     }
 
     private void Mark()
@@ -98,16 +94,15 @@ public class ToolsCharacterController : MonoBehaviour
         }
     }
 
-    private bool UseToolWorld() {
-
+    private bool UseToolWorld() 
+    {
         var position = rigidBody2D.position + characterController.LastDirection * offsetDistance;
 
-        var toolHittable = Utilities.GetObjectsNearPosition<ToolHittableBase>(position, sizeOfInteractableArea).FirstOrDefault();
+        Item item = toolbarController.GetSelectedTool();
 
-        if (toolHittable != null)
+        if (item != null && item.onAction != null)
         {
-            toolHittable.Hit();
-            return true;
+            return item.onAction.OnApply(position);
         }
 
         return false;

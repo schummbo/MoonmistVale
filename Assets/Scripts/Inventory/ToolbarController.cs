@@ -35,4 +35,9 @@ public class ToolbarController : MonoBehaviour
     {
         selectedTool = id;
     }
+
+    public Item GetSelectedTool()
+    {
+        return GameManager.Instance.InventoryContainer.ItemSlots[selectedTool].Item;
+    }
 }
