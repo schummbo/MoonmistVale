@@ -19,12 +19,12 @@ public class ResourceHittable : ToolHittableBase
     {
         for (int i = 0; i < dropCount; i++)
         {
-            Vector2 positionOfLog = transform.position;
+            Vector2 positionOfResourceSource = transform.position;
 
-            positionOfLog.x += spread * Random.value - spread / 2;
-            positionOfLog.y += spread * Random.value - spread / 2;
+            positionOfResourceSource.x += spread * Random.value - spread / 2;
+            positionOfResourceSource.y += spread * Random.value - spread / 2;
 
-            ItemSpawnManager.Instance.SpawnItem(positionOfLog, item, amountPerDrop);
+            ItemSpawnManager.Instance.SpawnItem(positionOfResourceSource, item, amountPerDrop);
         }
         
         Destroy(gameObject);

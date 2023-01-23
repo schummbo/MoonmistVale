@@ -76,6 +76,10 @@ MonoBehaviour:
   OpenContainer: {fileID: 8202009160914433217}
   ClosedContainer: {fileID: 8202009161288399263}
   IsOpen: 0
+  dropCount: 5
+  amountPerDrop: 1
+  spread: 0.7
+  item: {fileID: 11400000, guid: b138969cd77afe147bcfab4a7aa0464e, type: 2}
 --- !u!1 &8202009160914433217
 GameObject:
   m_ObjectHideFlags: 0
