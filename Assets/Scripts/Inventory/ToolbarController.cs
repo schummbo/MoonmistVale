@@ -17,13 +17,39 @@ public class ToolbarController : MonoBehaviour
 
             if (delta != 0)
             {
-                if (delta > 0 && selectedTool < toolbarSize - 1)
+                var originalSelectedTool = selectedTool;
+
+                if (delta > 0)
                 {
-                    selectedTool += 1;
+                    do
+                    {
+                        selectedTool++;
+                        if (selectedTool == toolbarSize)
+                        {
+                            selectedTool = 0;
+                        }
+
+                        if (GetSelectedTool() != null)
+                        {
+                            break;
+                        }
+                    } while (selectedTool != originalSelectedTool);
                 }
-                else if (delta < 0 && selectedTool > 0)
+                else
                 {
-                    selectedTool -= 1;
+                    do
+                    {
+                        selectedTool--;
+                        if (selectedTool == -1)
+                        {
+                            selectedTool = toolbarSize - 1;
+                        }
+
+                        if (GetSelectedTool() != null)
+                        {
+                            break;
+                        }
+                    } while (selectedTool != originalSelectedTool);
                 }
 
                 OnChange?.Invoke(selectedTool);
@@ -39,5 +65,22 @@ public class ToolbarController : MonoBehaviour
     public Item GetSelectedTool()
     {
         return GameManager.Instance.InventoryContainer.ItemSlots[selectedTool].Item;
+    }
+    
+    public void OnQuickToolSelection(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            if (int.TryParse(context.control.name, out int numPressed))
+            {
+                numPressed -= 1;
+
+                if (GameManager.Instance.InventoryContainer.ItemSlots[numPressed].Item != null)
+                {
+                    SetSelectedTool(numPressed);
+                    OnChange?.Invoke(selectedTool);
+                }
+            }
+        }
     }
 }

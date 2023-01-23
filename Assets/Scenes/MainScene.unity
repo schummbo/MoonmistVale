@@ -25181,6 +25181,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: dc2f5165-105b-45e1-8a21-f35e310382df
     m_ActionName: Player/ScrollToolbar[/Mouse/scroll/down,/Mouse/scroll/up]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1018980948}
+        m_TargetAssemblyTypeName: ToolbarController, Assembly-CSharp
+        m_MethodName: OnQuickToolSelection
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: b771bcbb-50a4-4105-b124-609ad563f528
+    m_ActionName: Player/QuickToolSelection[/Keyboard/1,/Keyboard/2]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -28298,6 +28314,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4031528606328755507, guid: 21a837aee31b21649ab4e6814afda3f0, type: 3}
   m_PrefabInstance: {fileID: 4031528605889331548}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1708201075 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6267490706913068388, guid: 21a837aee31b21649ab4e6814afda3f0, type: 3}
+  m_PrefabInstance: {fileID: 4031528605889331548}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1197136868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e25fe35beab91ac4ca78cdb4c03d00bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1718429127 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2822575406466160576, guid: bd39b056ef25f9b4d86f40da60dc282d, type: 3}
@@ -30604,12 +30631,16 @@ PrefabInstance:
       value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 4031528606328755502, guid: 21a837aee31b21649ab4e6814afda3f0, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4031528606328755502, guid: 21a837aee31b21649ab4e6814afda3f0, type: 3}
       propertyPath: m_ActionEvents.Array.data[5].m_ActionId
-      value: 15cef263-9014-4fd5-94d9-4e4a6234a6ef
+      value: dc2f5165-105b-45e1-8a21-f35e310382df
       objectReference: {fileID: 0}
     - target: {fileID: 4031528606328755502, guid: 21a837aee31b21649ab4e6814afda3f0, type: 3}
       propertyPath: m_ActionEvents.Array.data[6].m_ActionId
-      value: 32b35790-4ed0-4e9a-aa41-69ac6d629449
+      value: b771bcbb-50a4-4105-b124-609ad563f528
       objectReference: {fileID: 0}
     - target: {fileID: 4031528606328755502, guid: 21a837aee31b21649ab4e6814afda3f0, type: 3}
       propertyPath: m_ActionEvents.Array.data[7].m_ActionId
@@ -30637,11 +30668,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4031528606328755502, guid: 21a837aee31b21649ab4e6814afda3f0, type: 3}
       propertyPath: m_ActionEvents.Array.data[5].m_ActionName
-      value: UI/Cancel[/Keyboard/escape]
+      value: Player/ScrollToolbar[/Mouse/scroll/down,/Mouse/scroll/up]
       objectReference: {fileID: 0}
     - target: {fileID: 4031528606328755502, guid: 21a837aee31b21649ab4e6814afda3f0, type: 3}
       propertyPath: m_ActionEvents.Array.data[6].m_ActionName
-      value: UI/Point[/Mouse/position]
+      value: Player/QuickToolSelection[/Keyboard/1,/Keyboard/2]
       objectReference: {fileID: 0}
     - target: {fileID: 4031528606328755502, guid: 21a837aee31b21649ab4e6814afda3f0, type: 3}
       propertyPath: m_ActionEvents.Array.data[7].m_ActionName
@@ -30666,6 +30697,34 @@ PrefabInstance:
     - target: {fileID: 4031528606328755502, guid: 21a837aee31b21649ab4e6814afda3f0, type: 3}
       propertyPath: m_ActionEvents.Array.data[12].m_ActionName
       value: UI/TrackedDeviceOrientation
+      objectReference: {fileID: 0}
+    - target: {fileID: 4031528606328755502, guid: 21a837aee31b21649ab4e6814afda3f0, type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4031528606328755502, guid: 21a837aee31b21649ab4e6814afda3f0, type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4031528606328755502, guid: 21a837aee31b21649ab4e6814afda3f0, type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1708201075}
+    - target: {fileID: 4031528606328755502, guid: 21a837aee31b21649ab4e6814afda3f0, type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4031528606328755502, guid: 21a837aee31b21649ab4e6814afda3f0, type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnQuickToolSelection
+      objectReference: {fileID: 0}
+    - target: {fileID: 4031528606328755502, guid: 21a837aee31b21649ab4e6814afda3f0, type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ToolsCharacterController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4031528606328755502, guid: 21a837aee31b21649ab4e6814afda3f0, type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4031528606328755504, guid: 21a837aee31b21649ab4e6814afda3f0, type: 3}
       propertyPath: m_Name
