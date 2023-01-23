@@ -516,7 +516,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IconsPJ_19
+      name: Hoe
       rect:
         serializedVersion: 2
         x: 100
@@ -633,8 +633,8 @@ TextureImporter:
     nameFileIdTable:
       IconsPJ_6: 1179759363
       IconsPJ_12: 1020131152
-      IconsPJ_19: 822447282
       IconsPJ_11: -299101325
+      Hoe: 822447282
       IconsPJ_0: 1709952933
       IconsPJ_5: -161845807
       IconsPJ_20: -1410249960

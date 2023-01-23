@@ -1,14 +1,11 @@
-﻿using System;
+﻿using Assets.Scripts.ToolHittables;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Assets.Scripts.ToolHittables;
 using UnityEngine;
 
 namespace Assets.Scripts.Tools
 {
-    [CreateAssetMenu(menuName = "Data/Tool Actions/Break Resource ")]
+    [CreateAssetMenu(menuName = "Data/Tool Actions/Break Resource")]
     public class BreakResourceAction : ToolActionBase
     {
 
@@ -26,6 +23,15 @@ namespace Assets.Scripts.Tools
             }
 
             return false;
+        }
+
+        public override bool OnApplyToTileMap(Vector3Int tileMapPosition, TileMapReadController tileMapReadController)
+        {
+            return false;
+        }
+
+        public override void OnItemUsed(Item itemUsed, ItemContainer inventory)
+        {
         }
     }
 }

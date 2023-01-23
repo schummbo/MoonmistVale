@@ -2337,11 +2337,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8202009160729061858, guid: f14c342916043a54d81046d5223e77e7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.4965615
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8202009160729061858, guid: f14c342916043a54d81046d5223e77e7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.1518493
+      value: -1.85
       objectReference: {fileID: 0}
     - target: {fileID: 8202009160729061858, guid: f14c342916043a54d81046d5223e77e7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -27351,8 +27351,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   groundTileMap: {fileID: 517706204}
-  TileDatas:
-  - {fileID: 11400000, guid: 341370fb62fb9494ea7f97027c37e65d, type: 2}
+  cropsManager: {fileID: 1486993263}
 --- !u!114 &1486993263
 MonoBehaviour:
   m_ObjectHideFlags: 0

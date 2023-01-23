@@ -1,7 +1,6 @@
 using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Tilemaps;
 
 public class ToolsCharacterController : MonoBehaviour
 {
@@ -12,7 +11,6 @@ public class ToolsCharacterController : MonoBehaviour
     [SerializeField] private int selectableCellRadius = 1;
     [SerializeField] private MarkerManager markerManager;
     [SerializeField] private TileMapReadController tileMapReadController;
-    [SerializeField] private CropsManager cropsManager;
     [SerializeField] private ToolbarController toolbarController;
     private Animator animator;
 
@@ -100,45 +98,44 @@ public class ToolsCharacterController : MonoBehaviour
     {
         var position = rigidBody2D.position + characterController.MotionVector * offsetDistance;
 
-        Item item = toolbarController.GetSelectedTool();
+        Item selectedTool = toolbarController.GetSelectedTool();
 
-        if (item != null && item.onAction != null)
+        if (selectedTool != null && selectedTool.onAction != null)
         {
             animator.SetTrigger("PerformAction");
-            return item.onAction.OnApply(position);
+            if (selectedTool.onAction.OnApply(position))
+            {
+                if (selectedTool.onItemUsed != null)
+                {
+                    selectedTool.onItemUsed.OnItemUsed(selectedTool, GameManager.Instance.InventoryContainer);
+                    return true;
+                }
+            }
         }
 
         return false;
     }
 
-    public void UseToolGrid()
+    public bool UseToolGrid()
     {
         if (selectable)
         {
-            TileBase tile = tileMapReadController.GetTileBase(selectedTilePosition);
+            Item selectedTool = toolbarController.GetSelectedTool();
 
-            if (tile == null)
+            if (selectedTool != null && selectedTool.onTilemapAction != null)
             {
-                return;
+                animator.SetTrigger("PerformAction");
+                if (selectedTool.onTilemapAction.OnApplyToTileMap(selectedTilePosition, tileMapReadController))
+                {
+                    if (selectedTool.onItemUsed != null)
+                    {
+                        selectedTool.onItemUsed.OnItemUsed(selectedTool, GameManager.Instance.InventoryContainer);
+                        return true;
+                    }
+                }
             }
-
-            TileData tileData = tileMapReadController.GetTileData(tile);
-
-
-            if (tileData == null || !tileData.Plowable)
-            {
-                return;
-            }
-
-            if (cropsManager.Check(selectedTilePosition))
-            {
-                cropsManager.Seed(selectedTilePosition);
-            }
-            else
-            {
-                cropsManager.Plow(selectedTilePosition);
-            }
-            
         }
+        
+        return false;
     }
 }

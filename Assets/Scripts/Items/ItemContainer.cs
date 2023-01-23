@@ -37,4 +37,40 @@ public class ItemContainer : ScriptableObject
 
         OnChange?.Invoke();
     }
+
+    public void RemoveItem(Item item, int itemCount = 1)
+    {
+        if (item.Stackable)
+        {
+            var itemSlot = this.ItemSlots.Find(slot => slot.Item == item);
+
+            if (itemSlot == null)
+            {
+                return; 
+            }
+
+            itemSlot.Count -= itemCount;
+
+            if (itemSlot.Count <= 0)
+            {
+                itemSlot.Clear();
+            }
+        }
+        else
+        {
+            while (itemCount > 0)
+            {
+                itemCount--;
+
+                var itemSlot = this.ItemSlots.Find(slot => slot.Item == item);
+
+                if (itemSlot == null)
+                {
+                    break;
+                }
+            }
+        }
+
+        OnChange?.Invoke();
+    }
 }
