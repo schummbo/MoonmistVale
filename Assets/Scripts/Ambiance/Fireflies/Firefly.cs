@@ -9,7 +9,6 @@ public class Firefly : MonoBehaviour
     [SerializeField] private float magnitude = .5f;
     [SerializeField] private float timeChangeMin = 2f;
     [SerializeField] private float timeChangeMax = 15f;
-    [SerializeField] private Quaternion rotation;
 
     [SerializeField] private int floatDirection;
 
@@ -63,8 +62,6 @@ public class Firefly : MonoBehaviour
 
             currentTime = 0;
             nextDirectionChange = Random.Range(timeChangeMin, timeChangeMax);
-            this.transform.Rotate(Vector2.zero, Random.Range(0, 90));
-            rotation = this.transform.rotation;
         }
     }
 
