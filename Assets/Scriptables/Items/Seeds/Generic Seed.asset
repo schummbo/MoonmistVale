@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Generic Seed
   Stackable: 1
-  Icon: {fileID: 21300000, guid: 1f54561658884614a828f0be0c7acb75, type: 3}
+  Icon: {fileID: 748500507, guid: 72b70b6f04bc7ea4caebad0f4684e649, type: 3}
   onAction: {fileID: 0}
   onTilemapAction: {fileID: 11400000, guid: 647f0d02066900d418879d379970ca3d, type: 2}
   onItemUsed: {fileID: 11400000, guid: 647f0d02066900d418879d379970ca3d, type: 2}

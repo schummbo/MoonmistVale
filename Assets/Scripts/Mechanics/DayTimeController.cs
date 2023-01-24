@@ -1,16 +1,16 @@
-using Assets.Scripts.NotificationSystem;
+using System;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
 public class DayTimeController : MonoBehaviour
 {
-    [SerializeField] int DayStartTime = 5;
+    [SerializeField] int dayStartTime = 5;
 
     float Hours => currentTimeSeconds / 3600f;
+
     float Minutes => currentTimeSeconds % 3600f / 60f;
 
-    private const float SecondsInDay = 86400;
     private float currentTimeSeconds;
 
     [SerializeField] float timeScale = 60f;
@@ -23,70 +23,47 @@ public class DayTimeController : MonoBehaviour
 
     [SerializeField] Light2D globalLight;
 
-    private DayNightCycleState? previousDayNightCycleState;
-
     private int days = 1;
 
+    public Action<int> OnPhaseStarted;
 
     void Awake()
     {
-        currentTimeSeconds = DayStartTime * 60f * 60f;
+        currentTimeSeconds = dayStartTime * 60f * 60f;
     }
 
     void Update()
     {
-        var valueOnDaylightCurve = nightTimeCurve.Evaluate(Hours);
-
-        SetDaylightColor(valueOnDaylightCurve);
-        SetDayAndTime();
-
-        NotifyDayOrNight(valueOnDaylightCurve);
-
         currentTimeSeconds += Time.deltaTime * timeScale;
 
-        if (currentTimeSeconds > SecondsInDay)
+        float valueOnDaylightCurve = nightTimeCurve.Evaluate(Hours);
+
+        SetDaylightColor(valueOnDaylightCurve);
+
+        SetDayAndTime();
+
+        if (currentTimeSeconds > TimeUtilities.SecondsInDay)
         {
             NextDay();
         }
+
+        CallTimeAgents();
     }
 
-    private void NotifyDayOrNight(float valueOnDaylightCurve)
+    private int previousPhase = 0;
+
+    private void CallTimeAgents()
     {
-        const float tolerance = .01f;
+        int currentPhase = TimeUtilities.GetPhase(currentTimeSeconds);
 
-        DayNightCycleState? state = null;
-
-        if (Mathf.Abs(0 - valueOnDaylightCurve) < tolerance)
+        if (previousPhase != currentPhase)
         {
-            state = DayNightCycleState.Day;
-        }
+            previousPhase = currentPhase;
 
-        if (Mathf.Abs(.7f - valueOnDaylightCurve) < tolerance)
-        {
-            if (previousDayNightCycleState == DayNightCycleState.Night)
-            {
-                state = DayNightCycleState.Morning;
-            }
-
-            if (previousDayNightCycleState == DayNightCycleState.Day)
-            {
-                state = DayNightCycleState.Evening;
-            }
-        }
-
-        if (Mathf.Abs(1 - valueOnDaylightCurve) < tolerance)
-        {
-            state = DayNightCycleState.Night;
-        }
-
-        if (state.HasValue && state != previousDayNightCycleState)
-        {
-            BroadcastMessage(IDayNightCycleChangeHandler.ChangeHandlerName, new DayNightChangeArgs(state.Value));
-
-            previousDayNightCycleState = state;
+            OnPhaseStarted?.Invoke(currentPhase);
         }
     }
-
+    
     private void SetDaylightColor(float valueOnDaylightCurve)
     {
         globalLight.color = GetDaylightColor(valueOnDaylightCurve);

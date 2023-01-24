@@ -14,7 +14,7 @@ namespace Assets.Scripts.Tools
 
         public override bool OnApply(Vector2 worldPoint)
         {
-            var resourceHittable = Utilities.GetObjectsNearPosition<ResourceHittable>(worldPoint, sizeOfInteractableArea).FirstOrDefault();
+            var resourceHittable = PositioningUtilities.GetObjectsNearPosition<ResourceHittable>(worldPoint, sizeOfInteractableArea).FirstOrDefault();
 
             if (resourceHittable != null && resourceHittable.CanBeHit(CanHitTypes))
             {

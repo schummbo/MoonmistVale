@@ -41,10 +41,7 @@ namespace Assets.Scripts.Ambiance
 
         public void TurnOff(bool randomize)
         {
-            if (!randomize)
-            {
-                futureTime = 0;
-            }
+            SetFutureTime(randomize);
 
             isToggling = true;
             isLighting = false;

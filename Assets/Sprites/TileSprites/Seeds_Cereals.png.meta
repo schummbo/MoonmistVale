@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 980365c2294fcc8489987c590ed2e0aa
+guid: 72b70b6f04bc7ea4caebad0f4684e649
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -70,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -117,13 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MoreObjects_0
+      name: Seeds_Cereals_0
       rect:
         serializedVersion: 2
-        x: 99
-        y: 496
-        width: 74
-        height: 80
+        x: 3
+        y: 130
+        width: 27
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +131,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 61270b00b3bfc1c488321a02a23421e2
-      internalID: 1291732863
+      spriteID: 8f7f533ae97f9f54f95223d39bce326d
+      internalID: -1537009500
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MoreObjects_1
+      name: Seeds_Cereals_1
       rect:
         serializedVersion: 2
-        x: 179
-        y: 496
-        width: 74
-        height: 80
+        x: 43
+        y: 139
+        width: 11
+        height: 12
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,20 +152,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6090b5c12e4281643a08303ea437439e
-      internalID: -547197095
+      spriteID: 0a6f59b1be7571a409a2c092ef1b530f
+      internalID: -2065543763
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MoreObjects_2
+      name: Seeds_Cereals_2
       rect:
         serializedVersion: 2
-        x: 512
-        y: 529
-        width: 14
-        height: 29
+        x: 3
+        y: 98
+        width: 27
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,20 +173,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a57ebdba233acc7498592c21d0cf5322
-      internalID: -1437180392
+      spriteID: 3d9a54e50561f3c4bb0084a0d81c4464
+      internalID: -1118786419
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MoreObjects_3
+      name: Seeds_Cereals_3
       rect:
         serializedVersion: 2
-        x: 528
-        y: 548
-        width: 16
-        height: 24
+        x: 43
+        y: 105
+        width: 11
+        height: 11
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,20 +194,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3f6d28ee88afa29438df384e45a932eb
-      internalID: 981718724
+      spriteID: 74be006b409959a49af046e896971786
+      internalID: 748500507
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MoreObjects_4
+      name: Seeds_Cereals_4
       rect:
         serializedVersion: 2
-        x: 564
-        y: 562
-        width: 9
-        height: 14
+        x: 3
+        y: 66
+        width: 27
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -215,18 +215,60 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f1d21cf012403654cb081478f1550169
-      internalID: 629085345
+      spriteID: f9a64893dea2db1449f9ce49fb652e80
+      internalID: -942655499
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MoreObjects_5
+      name: Seeds_Cereals_5
       rect:
         serializedVersion: 2
-        x: 594
-        y: 560
+        x: 42
+        y: 72
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6719c1c56f5d16146a12d222902ec88c
+      internalID: 921230463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seeds_Cereals_6
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 34
+        width: 27
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 848487b2c788b084aa375dc42b626ce1
+      internalID: -233696220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seeds_Cereals_7
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 41
         width: 12
         height: 13
       alignment: 0
@@ -236,20 +278,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9b4bb8cb440ccfe4783a1233fbcbf160
-      internalID: 611126685
+      spriteID: b1d033872ad85f64bbb937c6c778c94b
+      internalID: -1647157882
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MoreObjects_6
+      name: Seeds_Cereals_8
       rect:
         serializedVersion: 2
-        x: 602
-        y: 544
-        width: 11
-        height: 7
+        x: 3
+        y: 2
+        width: 27
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -257,20 +299,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c4ceb8b462a6b984998dfc9dafced5dd
-      internalID: -52209579
+      spriteID: 170dc73332129db4f8d3c95a96c9fe94
+      internalID: -682942820
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MoreObjects_7
+      name: Seeds_Cereals_9
       rect:
         serializedVersion: 2
-        x: 532
-        y: 530
-        width: 9
-        height: 12
+        x: 44
+        y: 11
+        width: 10
+        height: 10
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -278,155 +320,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 266ba4ef5c4b54540af58bc9e0dc2e25
-      internalID: 1233467257
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MoreObjects_8
-      rect:
-        serializedVersion: 2
-        x: 567
-        y: 470
-        width: 18
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c9adeacc600ddd64782a204ca2d38732
-      internalID: -1365016949
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MoreObjects_9
-      rect:
-        serializedVersion: 2
-        x: 209
-        y: 448
-        width: 30
-        height: 43
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5c2360e0b22dcc9419b540c6db3a844d
-      internalID: 1859389866
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MoreObjects_10
-      rect:
-        serializedVersion: 2
-        x: 562
-        y: 545
-        width: 12
-        height: 15
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c0cb25e05ebb802468b527c77613b4f9
-      internalID: 401104928
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MoreObjects_11
-      rect:
-        serializedVersion: 2
-        x: 433
-        y: 233
-        width: 16
-        height: 23
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cb62897accf5d0d41984a575a5799857
-      internalID: -1417267641
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MoreObjects_12
-      rect:
-        serializedVersion: 2
-        x: 449
-        y: 233
-        width: 15
-        height: 23
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bfd370d9e6599584681e9704b55f6747
-      internalID: 1525172100
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boulder
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 368
-        width: 31
-        height: 27
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 406b4b52d2063ea45bbb96e8b0a8cc51
-      internalID: -513347397
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Log
-      rect:
-        serializedVersion: 2
-        x: 50
-        y: 480
-        width: 44
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fc34c01b6b2db874da9618bb269a2344
-      internalID: 2001296142
+      spriteID: d14196b2827faf24bad37ebe91f5873b
+      internalID: -226243801
       vertices: []
       indices: 
       edges: []
@@ -442,21 +337,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      MoreObjects_8: -1365016949
-      MoreObjects_6: -52209579
-      MoreObjects_12: -1866679462
-      Boulder: -513347397
-      MoreObjects_1: -547197095
-      MoreObjects_0: 1291732863
-      MoreObjects_4: 629085345
-      MoreObjects_5: 611126685
-      MoreObjects_3: 981718724
-      MoreObjects_10: 401104928
-      Log: 2001296142
-      MoreObjects_2: -1437180392
-      MoreObjects_9: 1859389866
-      MoreObjects_11: -1165860090
-      MoreObjects_7: 1233467257
+      Seeds_Cereals_7: -1647157882
+      Seeds_Cereals_3: 748500507
+      Seeds_Cereals_4: -942655499
+      Seeds_Cereals_6: -233696220
+      Seeds_Cereals_2: -1118786419
+      Seeds_Cereals_0: -1537009500
+      Seeds_Cereals_5: 921230463
+      Seeds_Cereals_8: -682942820
+      Seeds_Cereals_9: -226243801
+      Seeds_Cereals_1: -2065543763
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

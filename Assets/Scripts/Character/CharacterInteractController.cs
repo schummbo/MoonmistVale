@@ -52,7 +52,7 @@ public class CharacterInteractController : MonoBehaviour
     {
         var position = rigidBody2D.position + characterController.MotionVector * OffsetDistance;
 
-        var interactables = Utilities.GetObjectsNearPosition<InteractableBase>(position, SizeOfInteractableArea);
+        var interactables = PositioningUtilities.GetObjectsNearPosition<InteractableBase>(position, SizeOfInteractableArea);
 
         var firstInteractable = interactables.FirstOrDefault(i => i.IsInteractable);
         return firstInteractable;

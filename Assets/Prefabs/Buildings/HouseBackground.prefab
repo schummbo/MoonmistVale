@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1137517356385910115}
   - component: {fileID: 7015575493566479728}
   - component: {fileID: 6388033000466067568}
-  - component: {fileID: 2883907361757468502}
+  - component: {fileID: 7285977950334297088}
   m_Layer: 0
   m_Name: HouseBackground
   m_TagString: Untagged
@@ -113,7 +113,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.625, y: 3.5751991}
   m_EdgeRadius: 0
---- !u!114 &2883907361757468502
+--- !u!114 &7285977950334297088
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,7 +122,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1920587730913727261}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40d516777844d72479abd848d2e243e2, type: 3}
+  m_Script: {fileID: 11500000, guid: 46357032eff6fda4ea61ffa16975dd34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   porchLight: {fileID: 4115591966431805479}

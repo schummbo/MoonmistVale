@@ -6,6 +6,5 @@ public abstract class ToolHittableBase : MonoBehaviour
 {
     public abstract void Hit();
 
-
     public abstract bool CanBeHit(List<ResourceType> resourceTypes);
 }

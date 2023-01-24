@@ -1,14 +1,15 @@
-using Assets.Scripts.NotificationSystem;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireflyController : MonoBehaviour, IDayNightCycleChangeHandler
+public class FireflyController : TimeBasedBehaviorBase
 {
+    [SerializeField] private int turnOnHour = 20;
+    [SerializeField] private int turnOffHour = 5;
     [SerializeField] private List<Firefly> fireflies;
 
-    public void HandleDayNightCycleChange(DayNightChangeArgs args)
+    protected override void HandlePhaseStarted(int phase)
     {
-        if (args.State == DayNightCycleState.Evening)
+        if (phase == TimeUtilities.GetPhaseByHour(turnOnHour))
         {
             foreach (var firefly in fireflies)
             {
@@ -16,7 +17,7 @@ public class FireflyController : MonoBehaviour, IDayNightCycleChangeHandler
             }
         }
 
-        if (args.State == DayNightCycleState.Morning)
+        if (phase == TimeUtilities.GetPhaseByHour(turnOffHour))
         {
             foreach (var firefly in fireflies)
             {
