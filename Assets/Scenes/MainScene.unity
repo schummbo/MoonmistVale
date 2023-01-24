@@ -27225,8 +27225,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68c40d1ee640ba74193c8dc22787679f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dayStartTime: 0
-  timeScale: 60
+  dayStartTime: 5
+  timeScale: 240
   nightColor: {r: 0.24504568, g: 0.28114688, b: 0.5566038, a: 0}
   dayColor: {r: 1, g: 1, b: 1, a: 0}
   nightTimeCurve:
@@ -27975,6 +27975,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 615026940}
     m_Modifications:
+    - target: {fileID: 1280740818724319090, guid: 6c5d598bbd03d5e4f896c41050ffc827, type: 3}
+      propertyPath: spread
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4892180005726930138, guid: 6c5d598bbd03d5e4f896c41050ffc827, type: 3}
       propertyPath: m_Name
       value: Tree (7)
