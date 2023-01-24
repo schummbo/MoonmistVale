@@ -62,7 +62,6 @@ public class Firefly : MonoBehaviour
 
             currentTime = 0;
             nextDirectionChange = Random.Range(timeChangeMin, timeChangeMax);
-            this.transform.Rotate(Vector2.zero, Random.Range(0, 90));
         }
     }
 

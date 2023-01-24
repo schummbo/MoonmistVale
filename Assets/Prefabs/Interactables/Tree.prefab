@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4892180005726930148}
   - component: {fileID: 4892180005726930139}
   - component: {fileID: -8487511601721858225}
+  - component: {fileID: 1280740818724319090}
   m_Layer: 0
   m_Name: Tree
   m_TagString: Untagged
@@ -129,3 +130,19 @@ MonoBehaviour:
   spread: 0.7
   item: {fileID: 11400000, guid: 8512eec9bfdda8e4ab93e0dffe3b130c, type: 2}
   resourceType: 1
+--- !u!114 &1280740818724319090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4892180005726930138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ff48edb7d9b9b04d9d8ad0ec237e90d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemToSpawn: {fileID: 11400000, guid: b138969cd77afe147bcfab4a7aa0464e, type: 2}
+  numberToSpawn: 1
+  spread: 2
+  probability: 0.25

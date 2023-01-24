@@ -13,23 +13,23 @@ MonoBehaviour:
   m_Name: ItemsContainer
   m_EditorClassIdentifier: GameAssembly::ItemsContainer
   ItemSlots:
-  - Item: {fileID: 11400000, guid: 5a33bbd68d90a0d4191542405bbdafd9, type: 2}
-    Count: 1
-  - Item: {fileID: 11400000, guid: 1dad2816f1d4f4b4f9245004c85abeba, type: 2}
-    Count: 1
-  - Item: {fileID: 11400000, guid: 810fdb26148a6bc44b504bcbd4013ff3, type: 2}
-    Count: 1
   - Item: {fileID: 11400000, guid: 270f730c1584d8047a997189bbe8ed55, type: 2}
-    Count: 1
-  - Item: {fileID: 11400000, guid: b138969cd77afe147bcfab4a7aa0464e, type: 2}
-    Count: 5
-  - Item: {fileID: 0}
+    Count: 0
+  - Item: {fileID: 11400000, guid: 810fdb26148a6bc44b504bcbd4013ff3, type: 2}
+    Count: 0
+  - Item: {fileID: 11400000, guid: 5a33bbd68d90a0d4191542405bbdafd9, type: 2}
     Count: 0
   - Item: {fileID: 0}
     Count: 0
   - Item: {fileID: 0}
     Count: 0
   - Item: {fileID: 0}
+    Count: 0
+  - Item: {fileID: 0}
+    Count: 0
+  - Item: {fileID: 0}
+    Count: 0
+  - Item: {fileID: 11400000, guid: 1dad2816f1d4f4b4f9245004c85abeba, type: 2}
     Count: 0
   - Item: {fileID: 0}
     Count: 0

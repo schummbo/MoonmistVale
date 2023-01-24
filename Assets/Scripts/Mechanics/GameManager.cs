@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
 
     public ItemContainer InventoryContainer;
     public ItemDragDropController ItemDragDropController;
+    public DayTimeController dayTimeController;
 
     private void Awake()
     {

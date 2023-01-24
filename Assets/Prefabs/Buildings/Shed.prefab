@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8889712384310488064}
   - component: {fileID: 8889712384310488067}
   - component: {fileID: 1452396390421112845}
-  - component: {fileID: 5859788106095303331}
+  - component: {fileID: 5099536323249939766}
   m_Layer: 0
   m_Name: Shed
   m_TagString: Untagged
@@ -113,7 +113,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.875, y: 1.9010885}
   m_EdgeRadius: 0
---- !u!114 &5859788106095303331
+--- !u!114 &5099536323249939766
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,7 +122,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8889712384310488066}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40d516777844d72479abd848d2e243e2, type: 3}
+  m_Script: {fileID: 11500000, guid: 46357032eff6fda4ea61ffa16975dd34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   porchLight: {fileID: 1718415693835374504}
@@ -196,7 +196,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: -3136361941037557815, guid: e4bdcbe148774664b9dd2f86dc19a41f, type: 3}
   m_PrefabInstance: {fileID: 4873016389602203745}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4088712780260651794}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d67cde802ad6217498fbfd0979b82a9a, type: 3}
@@ -207,21 +207,3 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8904384583672667120, guid: e4bdcbe148774664b9dd2f86dc19a41f, type: 3}
   m_PrefabInstance: {fileID: 4873016389602203745}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &4088712780260651794 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8871642711865453427, guid: e4bdcbe148774664b9dd2f86dc19a41f, type: 3}
-  m_PrefabInstance: {fileID: 4873016389602203745}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2163464842241524202
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4088712780260651794}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40d516777844d72479abd848d2e243e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  porchLight: {fileID: 0}
