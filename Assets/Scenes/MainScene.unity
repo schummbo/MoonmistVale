@@ -2454,6 +2454,22 @@ PrefabInstance:
     m_TransformParent: {fileID: 1849545294}
     m_Modifications:
     - target: {fileID: 1507714645696834526, guid: 777675d62e2916c49ab258883a40b590, type: 3}
+      propertyPath: frequency
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1507714645696834526, guid: 777675d62e2916c49ab258883a40b590, type: 3}
+      propertyPath: magnitude
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1507714645696834526, guid: 777675d62e2916c49ab258883a40b590, type: 3}
+      propertyPath: timeChangeMax
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1507714645696834526, guid: 777675d62e2916c49ab258883a40b590, type: 3}
+      propertyPath: timeChangeMin
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1507714645696834526, guid: 777675d62e2916c49ab258883a40b590, type: 3}
       propertyPath: floatDirection
       value: 1
       objectReference: {fileID: 0}
@@ -26259,6 +26275,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1849545294}
     m_Modifications:
+    - target: {fileID: 1507714645696834526, guid: 777675d62e2916c49ab258883a40b590, type: 3}
+      propertyPath: timeChangeMax
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1507714645696834526, guid: 777675d62e2916c49ab258883a40b590, type: 3}
+      propertyPath: timeChangeMin
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1507714645696834526, guid: 777675d62e2916c49ab258883a40b590, type: 3}
       propertyPath: floatDirection
       value: 1

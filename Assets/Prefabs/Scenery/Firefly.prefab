@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0.9622642, g: 0.9111659, b: 0.5325738, a: 1}
   m_FlipX: 0
@@ -147,12 +147,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 0.1
-  frequency: 0.05
-  magnitude: 0.05
-  timeChangeMin: 2
-  timeChangeMax: 15
+  frequency: 0.1
+  magnitude: 0.5
+  timeChangeMin: 10
+  timeChangeMax: 20
   rotation: {x: 0, y: 0, z: 0, w: 0}
-  floatDirection: 0
+  floatDirection: 1
 --- !u!1 &8238303757565757476
 GameObject:
   m_ObjectHideFlags: 0
