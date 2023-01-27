@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 
 namespace Assets.Scripts.Crops
 {
@@ -7,13 +8,16 @@ namespace Assets.Scripts.Crops
         private readonly SpriteRenderer spriteRenderer;
         private int growTimer;
         private int currentGrowthStageIndex;
-
-        public Crop(SpriteRenderer spriteRenderer)
-        {
-            this.spriteRenderer = spriteRenderer;
-        }
+        private float damage;
 
         public CropData CropData { get; set; }
+        public Vector3Int Position { get; }
+
+        public Crop(Vector3Int position, SpriteRenderer spriteRenderer)
+        {
+            this.Position = position;
+            this.spriteRenderer = spriteRenderer;
+        }
 
         public void Grow()
         {
@@ -28,6 +32,21 @@ namespace Assets.Scripts.Crops
             }
         }
 
+        public bool IsGrowing()
+        {
+            return growTimer >= this.CropData.GrowthStagePhases.First();
+        }
+
+        public bool IsDead()
+        {
+            return damage >= 1;
+        }
+
+        public void Wither()
+        {
+            damage += .02f;
+        }
+
         public bool IsGrown()
         {
             if (CropData == null) return false;
@@ -37,11 +56,12 @@ namespace Assets.Scripts.Crops
 
         public void Harvest()
         {
-            spriteRenderer.sprite = CropData.HarvestedSprite;
+            spriteRenderer.gameObject.SetActive(false);
             CropData = null;
             growTimer = 0;
             currentGrowthStageIndex = 0;
-
+            damage = 0;
+            
         }
     }
 }

@@ -27,6 +27,19 @@ public class CropsManager : TimeBasedBehaviorBase
             {
                 crop.Grow();
             }
+
+            crop.Wither();
+
+            if (crop.IsGrowing())
+            {
+                cropsTilemap.SetTile(crop.Position, plowedTile);
+            }
+
+            if (crop.IsDead())
+            {
+                crop.Harvest();
+                cropsTilemap.SetTile(crop.Position, plowedTile);
+            }
         }
     }
 
@@ -56,7 +69,7 @@ public class CropsManager : TimeBasedBehaviorBase
         var go = Instantiate(cropSpritePrefab, cropsTilemap.CellToWorld(position), Quaternion.identity);
         go.SetActive(false);
 
-        var crop = new Crop(go.GetComponent<SpriteRenderer>());
+        var crop = new Crop(position, go.GetComponent<SpriteRenderer>());
 
         cropTiles.Add((Vector2Int)position, crop);
 
@@ -80,6 +93,7 @@ public class CropsManager : TimeBasedBehaviorBase
                 crop.CropData.Count);
 
             crop.Harvest();
+            cropsTilemap.SetTile(tileMapPosition, plowedTile);
         }
     }
 }
