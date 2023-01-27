@@ -16,14 +16,17 @@ namespace Assets.Scripts.Tools
             return false;
         }
 
-        public override bool OnApplyToTileMap(Vector3Int tileMapPosition, TileMapReadController tileMapReadController)
+        public override bool OnApplyToTileMap(
+            Vector3Int tileMapPosition, 
+            TileMapReadController tileMapReadController, 
+            Item item)
         {
-            if (!tileMapReadController.cropsManager.Check(tileMapPosition))
+            if (!tileMapReadController.cropsManager.CheckIfPlowed(tileMapPosition))
             {
                 return false;
             }
 
-            tileMapReadController.cropsManager.Seed(tileMapPosition);
+            tileMapReadController.cropsManager.PlantCrop(tileMapPosition, item.CropData);
             return true;
         }
 

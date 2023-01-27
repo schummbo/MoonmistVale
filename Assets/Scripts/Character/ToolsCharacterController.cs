@@ -125,7 +125,7 @@ public class ToolsCharacterController : MonoBehaviour
             if (selectedTool != null && selectedTool.onTilemapAction != null)
             {
                 animator.SetTrigger("PerformAction");
-                if (selectedTool.onTilemapAction.OnApplyToTileMap(selectedTilePosition, tileMapReadController))
+                if (selectedTool.onTilemapAction.OnApplyToTileMap(selectedTilePosition, tileMapReadController, selectedTool))
                 {
                     if (selectedTool.onItemUsed != null)
                     {
