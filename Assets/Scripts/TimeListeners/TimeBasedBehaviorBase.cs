@@ -2,7 +2,7 @@ using UnityEngine;
 
 public abstract class TimeBasedBehaviorBase : MonoBehaviour
 {
-    void Start()
+    protected void Start()
     {
         GameManager.Instance.dayTimeController.OnPhaseStarted += HandlePhaseStarted;
     }

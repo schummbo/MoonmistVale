@@ -26297,11 +26297,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8238303756083055441, guid: 777675d62e2916c49ab258883a40b590, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.462173
+      value: -11.95
       objectReference: {fileID: 0}
     - target: {fileID: 8238303756083055441, guid: 777675d62e2916c49ab258883a40b590, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.72
+      value: -6.3
       objectReference: {fileID: 0}
     - target: {fileID: 8238303756083055441, guid: 777675d62e2916c49ab258883a40b590, type: 3}
       propertyPath: m_LocalPosition.z
@@ -27349,6 +27349,7 @@ MonoBehaviour:
   plowedTile: {fileID: 11400000, guid: c938f5d7c78591a4dbc11016ebfbae78, type: 2}
   seededTile: {fileID: 11400000, guid: 4bb6ebe71fdb29a4f9b3e439d8701b95, type: 2}
   cropsTilemap: {fileID: 1020231990}
+  cropSpritePrefab: {fileID: 8082122303629567667, guid: c3487e3de78498f4886a46db8dc36e7b, type: 3}
 --- !u!114 &1486993264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27906,6 +27907,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 615026940}
     m_Modifications:
+    - target: {fileID: 1280740818724319090, guid: 6c5d598bbd03d5e4f896c41050ffc827, type: 3}
+      propertyPath: itemToSpawn
+      value: 
+      objectReference: {fileID: 11400000, guid: bbd017444d1d6504ab45441bb7e793ef, type: 2}
     - target: {fileID: 4892180005726930138, guid: 6c5d598bbd03d5e4f896c41050ffc827, type: 3}
       propertyPath: m_Name
       value: Tree (6)
@@ -27978,6 +27983,14 @@ PrefabInstance:
     - target: {fileID: 1280740818724319090, guid: 6c5d598bbd03d5e4f896c41050ffc827, type: 3}
       propertyPath: spread
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1280740818724319090, guid: 6c5d598bbd03d5e4f896c41050ffc827, type: 3}
+      propertyPath: itemToSpawn
+      value: 
+      objectReference: {fileID: 11400000, guid: bbd017444d1d6504ab45441bb7e793ef, type: 2}
+    - target: {fileID: 1280740818724319090, guid: 6c5d598bbd03d5e4f896c41050ffc827, type: 3}
+      propertyPath: probability
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4892180005726930138, guid: 6c5d598bbd03d5e4f896c41050ffc827, type: 3}
       propertyPath: m_Name
@@ -29854,7 +29867,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8238303756083055441, guid: 777675d62e2916c49ab258883a40b590, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.050761
+      value: 14.13
       objectReference: {fileID: 0}
     - target: {fileID: 8238303756083055441, guid: 777675d62e2916c49ab258883a40b590, type: 3}
       propertyPath: m_LocalPosition.y
@@ -31146,7 +31159,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8238303756083055441, guid: 777675d62e2916c49ab258883a40b590, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.7
+      value: -11.57
       objectReference: {fileID: 0}
     - target: {fileID: 8238303756083055441, guid: 777675d62e2916c49ab258883a40b590, type: 3}
       propertyPath: m_LocalPosition.y
