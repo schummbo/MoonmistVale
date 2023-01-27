@@ -4,10 +4,16 @@ namespace Assets.Scripts.Crops
 {
     public class Crop
     {
-        public CropData CropData;
+        private readonly SpriteRenderer spriteRenderer;
         private int growTimer;
-        public SpriteRenderer spriteRenderer;
-        private int currentGrowthStageIndex = 0;
+        private int currentGrowthStageIndex;
+
+        public Crop(SpriteRenderer spriteRenderer)
+        {
+            this.spriteRenderer = spriteRenderer;
+        }
+
+        public CropData CropData { get; set; }
 
         public void Grow()
         {
@@ -24,12 +30,18 @@ namespace Assets.Scripts.Crops
 
         public bool IsGrown()
         {
+            if (CropData == null) return false;
+
             return growTimer >= CropData.PhasesToGrow;
         }
 
-        public void Clear()
+        public void Harvest()
         {
+            spriteRenderer.sprite = CropData.HarvestedSprite;
             CropData = null;
+            growTimer = 0;
+            currentGrowthStageIndex = 0;
+
         }
     }
 }

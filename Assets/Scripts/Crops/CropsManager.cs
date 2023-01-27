@@ -1,7 +1,6 @@
-using System.Collections;
+using Assets.Scripts.Crops;
 using System.Collections.Generic;
 using System.Linq;
-using Assets.Scripts.Crops;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -24,12 +23,9 @@ public class CropsManager : TimeBasedBehaviorBase
     {
         foreach (Crop crop in cropTiles.Values.Where(tile => tile.CropData != null))
         {
-            crop.Grow();
-
-            if (crop.IsGrown())
+            if (!crop.IsGrown())
             {
-                Debug.Log("I'm done growing");
-                crop.Clear();
+                crop.Grow();
             }
         }
     }
@@ -57,14 +53,33 @@ public class CropsManager : TimeBasedBehaviorBase
 
     private void PlowTile(Vector3Int position)
     {
-        Crop crop = new Crop();
+        var go = Instantiate(cropSpritePrefab, cropsTilemap.CellToWorld(position), Quaternion.identity);
+        go.SetActive(false);
+
+        var crop = new Crop(go.GetComponent<SpriteRenderer>());
 
         cropTiles.Add((Vector2Int)position, crop);
 
-        GameObject go = Instantiate(cropSpritePrefab, cropsTilemap.CellToWorld(position), Quaternion.identity);
-        go.SetActive(false);
-        crop.spriteRenderer = go.GetComponent<SpriteRenderer>();
-
         cropsTilemap.SetTile(position, plowedTile);
+    }
+
+    public void PickUp(Vector3Int tileMapPosition)
+    {
+        var position = (Vector2Int)tileMapPosition;
+
+        if (!cropTiles.TryGetValue(position, out Crop crop))
+        {
+            return;
+        }
+
+        if (crop.IsGrown())
+        {
+            ItemSpawnManager.Instance.SpawnItem(
+                cropsTilemap.CellToWorld(tileMapPosition), 
+                crop.CropData.Yield, 
+                crop.CropData.Count);
+
+            crop.Harvest();
+        }
     }
 }

@@ -12,5 +12,7 @@ namespace Assets.Scripts.Crops
 
         public List<Sprite> GrowthStages;
         public List<int> GrowthStagePhases;
+
+        public Sprite HarvestedSprite;
     }
 }
