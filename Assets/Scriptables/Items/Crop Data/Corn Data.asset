@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 13652a97f387bf24fbac60b97e5f6d45, type: 3}
-  m_Name: Corn
+  m_Name: Corn Data
   m_EditorClassIdentifier: 
   PhasesToGrow: 24
-  Yield: {fileID: 11400000, guid: b138969cd77afe147bcfab4a7aa0464e, type: 2}
+  PhaseToDie: 30
+  Yield: {fileID: 11400000, guid: d8f9ad8261b1aab478d14322d17de017, type: 2}
   Count: 1
   GrowthStages:
   - {fileID: -1204506012, guid: c51989d8813d2b44ea219f4cc5b55e72, type: 3}

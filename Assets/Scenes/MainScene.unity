@@ -30820,6 +30820,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1486993263}
     - target: {fileID: 6267490706913068388, guid: 21a837aee31b21649ab4e6814afda3f0, type: 3}
+      propertyPath: onTilePickUp
+      value: 
+      objectReference: {fileID: 11400000, guid: 103ee70fb8730624194d6c33f6bf5bdd, type: 2}
+    - target: {fileID: 6267490706913068388, guid: 21a837aee31b21649ab4e6814afda3f0, type: 3}
       propertyPath: markerManager
       value: 
       objectReference: {fileID: 373119816}

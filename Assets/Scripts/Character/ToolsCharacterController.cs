@@ -12,6 +12,8 @@ public class ToolsCharacterController : MonoBehaviour
     [SerializeField] private MarkerManager markerManager;
     [SerializeField] private TileMapReadController tileMapReadController;
     [SerializeField] private ToolbarController toolbarController;
+    [SerializeField] private ToolActionBase onTilePickUp;
+
     private Animator animator;
 
     private Vector2 previousMousePosition;
@@ -100,7 +102,13 @@ public class ToolsCharacterController : MonoBehaviour
 
         Item selectedTool = toolbarController.GetSelectedTool();
 
-        if (selectedTool != null && selectedTool.onAction != null)
+        if (selectedTool == null)
+        {
+            PickUpTile();
+            return true;
+        }
+
+        if (selectedTool.onAction != null)
         {
             animator.SetTrigger("PerformAction");
             if (selectedTool.onAction.OnApply(position))
@@ -114,6 +122,14 @@ public class ToolsCharacterController : MonoBehaviour
         }
 
         return false;
+    }
+
+    private void PickUpTile()
+    {
+        if (onTilePickUp == null)
+            return;
+
+        onTilePickUp.OnApplyToTileMap(selectedTilePosition, tileMapReadController, null);
     }
 
     public bool UseToolGrid()
