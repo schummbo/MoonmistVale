@@ -11,4 +11,5 @@ public class Item : ScriptableObject
     public ToolActionBase onTilemapAction;
     public ToolActionBase onItemUsed;
     public CropData CropData;
+    public bool ProtectFromTrash;
 }

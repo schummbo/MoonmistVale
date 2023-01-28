@@ -17,3 +17,6 @@ MonoBehaviour:
   Icon: {fileID: 822447282, guid: 65cd94ef18897d840baf987af0bceb67, type: 3}
   onAction: {fileID: 0}
   onTilemapAction: {fileID: 11400000, guid: e87ca0aaeb4691648b8bb88f7344f5da, type: 2}
+  onItemUsed: {fileID: 0}
+  CropData: {fileID: 0}
+  ProtectFromTrash: 1
