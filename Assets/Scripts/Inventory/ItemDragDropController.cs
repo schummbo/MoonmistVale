@@ -32,7 +32,6 @@ public class ItemDragDropController : MonoBehaviour
                     this.itemIcon.SetActive(false);
                 }
             }
-            
         }
     }
 
@@ -53,6 +52,15 @@ public class ItemDragDropController : MonoBehaviour
         }
 
         UpdateIcon();
+    }
+
+    public void Trash()
+    {
+        if (this.itemSlot.Item != null && !this.itemSlot.Item.ProtectFromTrash)
+        {
+            itemSlot.Clear();
+            this.itemIcon.SetActive(false);
+        }
     }
 
     private void UpdateIcon()

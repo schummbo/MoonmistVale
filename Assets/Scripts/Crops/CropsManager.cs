@@ -55,8 +55,14 @@ public class CropsManager : TimeBasedBehaviorBase
 
     public void PlantCrop(Vector3Int position, CropData toSeed)
     {
-        cropsTilemap.SetTile(position, seededTile);
-        cropTiles[(Vector2Int)position].CropData = toSeed;
+        if (cropTiles.TryGetValue((Vector2Int)position, out Crop item))
+        {
+            if (item.CropData == null)
+            {
+                cropsTilemap.SetTile(position, seededTile);
+                cropTiles[(Vector2Int)position].CropData = toSeed;
+            }
+        }
     }
 
     public bool CheckIfPlowed(Vector3Int position)
@@ -88,8 +94,8 @@ public class CropsManager : TimeBasedBehaviorBase
         if (crop.IsGrown())
         {
             ItemSpawnManager.Instance.SpawnItem(
-                cropsTilemap.CellToWorld(tileMapPosition), 
-                crop.CropData.Yield, 
+                cropsTilemap.CellToWorld(tileMapPosition),
+                crop.CropData.Yield,
                 crop.CropData.Count);
 
             crop.Harvest();

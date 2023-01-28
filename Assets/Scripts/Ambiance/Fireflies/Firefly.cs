@@ -22,13 +22,11 @@ public class Firefly : MonoBehaviour
 
     private bool isTurningOff;
 
-    void Start()
-    {
-        startPos = this.transform.position;
-    }
-
     void Awake()
     {
+        startPos = this.transform.position;
+        movePos = startPos;
+
         buttLight = GetComponent<RandomLight>();
     }
 
@@ -68,6 +66,7 @@ public class Firefly : MonoBehaviour
     private void Move()
     {
         movePos.y = startPos.y + Mathf.Sin(Time.time * frequency) * magnitude;
+
         if (floatDirection > 0)
         {
             movePos.x += Time.deltaTime * moveSpeed;
