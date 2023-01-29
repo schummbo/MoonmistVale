@@ -9,8 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8469cd1371b58434da5a3abae2d36fc5, type: 3}
-  m_Name: BreakTree
+  m_Script: {fileID: 11500000, guid: bf5f2492bc8fc0d439e44e1245d4b844, type: 3}
+  m_Name: AlwynDialog
   m_EditorClassIdentifier: 
-  sizeOfInteractableArea: 0.5
-  CanHitTypes: 01000000
+  Lines:
+  - My flowers keep dying.
+  - Maybe you can give me some tips sometime!
+  Actor: {fileID: 11400000, guid: 95cac54f4a2c7584f82fc2dd56992f80, type: 2}

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -11,6 +9,7 @@ public class GameManager : MonoBehaviour
     public ItemContainer InventoryContainer;
     public ItemDragDropController ItemDragDropController;
     public DayTimeController dayTimeController;
+    public DialogSystem DialogSystem;
 
     private void Awake()
     {
