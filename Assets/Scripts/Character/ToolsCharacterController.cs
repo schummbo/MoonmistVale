@@ -1,5 +1,6 @@
 using System.Linq;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class ToolsCharacterController : MonoBehaviour
@@ -76,15 +77,6 @@ public class ToolsCharacterController : MonoBehaviour
         markerManager.markedCell = selectedTilePosition;
     }
 
-    /// <summary>
-    /// Checks the direction the character is facing.
-    /// If any colliders in the area in front of the character has
-    /// a ToolHittableBase component, perform the hit.
-    ///
-    /// Whatever the item was will determine what happens when it is hit.
-    ///
-    /// For example, a tree will split into x number of logs.
-    /// </summary>
     public void OnUseTool(InputAction.CallbackContext context)
     {
         if (context.performed)

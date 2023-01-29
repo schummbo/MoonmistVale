@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8469cd1371b58434da5a3abae2d36fc5, type: 3}
   m_Name: BreakTree
   m_EditorClassIdentifier: 
-  sizeOfInteractableArea: 1
+  sizeOfInteractableArea: 0.5
   CanHitTypes: 01000000
