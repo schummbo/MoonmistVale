@@ -81,10 +81,11 @@ public class ToolsCharacterController : MonoBehaviour
     {
         if (context.performed)
         {
-            if (!UseToolWorld())
+            if (!UseToolWorld() && !UseToolGrid())
             {
-                UseToolGrid();
+                PickUpTile();
             }
+            animator.SetTrigger("PerformAction");
         }
     }
 
@@ -102,7 +103,6 @@ public class ToolsCharacterController : MonoBehaviour
 
         if (selectedTool.onAction != null)
         {
-            animator.SetTrigger("PerformAction");
             if (selectedTool.onAction.OnApply(position))
             {
                 if (selectedTool.onItemUsed != null)
@@ -132,7 +132,6 @@ public class ToolsCharacterController : MonoBehaviour
 
             if (selectedTool != null && selectedTool.onTilemapAction != null)
             {
-                animator.SetTrigger("PerformAction");
                 if (selectedTool.onTilemapAction.OnApplyToTileMap(selectedTilePosition, tileMapReadController, selectedTool))
                 {
                     if (selectedTool.onItemUsed != null)
