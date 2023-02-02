@@ -1,6 +1,7 @@
 using Assets.Scripts.Crops;
 using System.Collections.Generic;
 using System.Linq;
+using Assets.Scripts.PubSub;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -8,15 +9,42 @@ public class CropsManager : TimeBasedBehaviorBase
 {
     [SerializeField] private TileBase plowedTile;
     [SerializeField] private TileBase seededTile;
-    [SerializeField] private Tilemap cropsTilemap;
+    private Tilemap cropsTilemap;
     [SerializeField] private GameObject cropSpritePrefab;
 
     private Dictionary<Vector2Int, Crop> cropTiles;
 
-    new void Start()
+    void Awake()
+    {
+        SetPlowedTilemap();
+    }
+
+    new void OnEnable()
+    {
+        pubSubEvents.OnScenePostChange += SetPlowedTilemap;
+        base.OnEnable();
+    }
+
+    new void OnDisable()
+    {
+        pubSubEvents.OnScenePostChange -= SetPlowedTilemap;
+        base.OnDisable();
+
+    }
+
+    private void SetPlowedTilemap()
+    {
+        var groundTileMapObject = GameObject.Find("Plowed");
+
+        if (groundTileMapObject != null)
+        {
+            cropsTilemap = groundTileMapObject.GetComponent<Tilemap>();
+        }
+    }
+
+    void Start()
     {
         cropTiles = new Dictionary<Vector2Int, Crop>();
-        base.Start();
     }
 
     protected override void HandlePhaseStarted(int phase)

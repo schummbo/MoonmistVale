@@ -142,7 +142,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ff48edb7d9b9b04d9d8ad0ec237e90d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pubSubEvents: {fileID: 11400000, guid: 9d17f323c1906174e9943fd8dd785158, type: 2}
   itemToSpawn: {fileID: 11400000, guid: b138969cd77afe147bcfab4a7aa0464e, type: 2}
   numberToSpawn: 1
   spread: 2
   probability: 0.25
+  intervalPhases: 4

@@ -1,15 +1,18 @@
+using Assets.Scripts.PubSub;
 using UnityEngine;
 
 public abstract class TimeBasedBehaviorBase : MonoBehaviour
 {
-    protected void Start()
+    [SerializeField] protected PubSubEvents pubSubEvents;
+
+    protected void OnEnable()
     {
-        GameManager.Instance.dayTimeController.OnPhaseStarted += HandlePhaseStarted;
+        pubSubEvents.OnPhaseStarting += HandlePhaseStarted;
     }
 
-    void OnDestroy()
+    protected void OnDisable()
     {
-        GameManager.Instance.dayTimeController.OnPhaseStarted -= HandlePhaseStarted;
+        pubSubEvents.OnPhaseStarting -= HandlePhaseStarted;
     }
 
     protected abstract void HandlePhaseStarted(int phase);

@@ -1,14 +1,39 @@
 using System.Collections.Generic;
+using Assets.Scripts.PubSub;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class TileMapReadController : MonoBehaviour
 {
-    [SerializeField] private Tilemap groundTileMap;
+    private Tilemap groundTileMap;
     [SerializeField] private List<TileData> TileDatas;
     public CropsManager cropsManager;
+    [SerializeField] private PubSubEvents pubSubEvents;
 
-    private Dictionary<TileBase, TileData> dataFromTiles;
+    void Awake()
+    {
+        SetGroundTilemap();
+    }
+
+    void OnEnable()
+    {
+        pubSubEvents.OnScenePostChange += SetGroundTilemap;
+    }
+
+    void OnDisable()
+    {
+        pubSubEvents.OnScenePostChange -= SetGroundTilemap;
+    }
+
+    private void SetGroundTilemap()
+    {
+        var groundTileMapObject = GameObject.Find("Ground");
+
+        if (groundTileMapObject != null)
+        {
+            groundTileMap = groundTileMapObject.GetComponent<Tilemap>();
+        }
+    }
 
     public Vector3Int GetGridPosition(Vector2 position, bool mousePosition = false)
     {

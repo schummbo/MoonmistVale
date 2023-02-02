@@ -2477,6 +2477,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   confiner: {fileID: 857517468}
+  pubSubEvents: {fileID: 11400000, guid: 9d17f323c1906174e9943fd8dd785158, type: 2}
 --- !u!224 &860864071 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6005706851254885105, guid: bd39b056ef25f9b4d86f40da60dc282d, type: 3}
@@ -3064,6 +3065,7 @@ MonoBehaviour:
   - {fileID: 860864072}
   - {fileID: 1604922213}
   - {fileID: 1000368997}
+  pubSubEvents: {fileID: 11400000, guid: 9d17f323c1906174e9943fd8dd785158, type: 2}
 --- !u!114 &1018980950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4640,6 +4642,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   timeText: {fileID: 1529928968}
   globalLight: {fileID: 619394801}
+  pubSubEvents: {fileID: 11400000, guid: 9d17f323c1906174e9943fd8dd785158, type: 2}
 --- !u!114 &1486993259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4681,8 +4684,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7f9bde5dce568e408cce2bf644f982e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundTileMap: {fileID: 1113834772}
   cropsManager: {fileID: 1486993263}
+  pubSubEvents: {fileID: 11400000, guid: 9d17f323c1906174e9943fd8dd785158, type: 2}
 --- !u!114 &1486993263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4695,9 +4698,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d41956e1ae861604abe02dee86743141, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pubSubEvents: {fileID: 11400000, guid: 9d17f323c1906174e9943fd8dd785158, type: 2}
   plowedTile: {fileID: 11400000, guid: c938f5d7c78591a4dbc11016ebfbae78, type: 2}
   seededTile: {fileID: 11400000, guid: 4bb6ebe71fdb29a4f9b3e439d8701b95, type: 2}
-  cropsTilemap: {fileID: 0}
   cropSpritePrefab: {fileID: 8082122303629567667, guid: c3487e3de78498f4886a46db8dc36e7b, type: 3}
 --- !u!114 &1486993264
 MonoBehaviour:
@@ -4711,6 +4714,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 110ab2cedac9f6e4fb7357e7f266e351, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pubSubEvents: {fileID: 11400000, guid: 9d17f323c1906174e9943fd8dd785158, type: 2}
   turnOnHour: 20
   turnOffHour: 5
 --- !u!114 &1486993265
@@ -4725,6 +4729,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44c2bb38f1b1aea40bcaf2f0227e4c50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pubSubEvents: {fileID: 11400000, guid: 9d17f323c1906174e9943fd8dd785158, type: 2}
   turnOnHour: 19
   turnOffHour: 5
 --- !u!114 &1486993266
@@ -4740,7 +4745,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   screenTint: {fileID: 471408286}
-  cameraConfiner: {fileID: 857517470}
+  pubSubEvents: {fileID: 11400000, guid: 9d17f323c1906174e9943fd8dd785158, type: 2}
 --- !u!114 &1501502166 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2822575406466160576, guid: bd39b056ef25f9b4d86f40da60dc282d, type: 3}
@@ -4955,6 +4960,7 @@ MonoBehaviour:
   - {fileID: 1919484321}
   - {fileID: 1718429127}
   - {fileID: 1984510763}
+  pubSubEvents: {fileID: 11400000, guid: 9d17f323c1906174e9943fd8dd785158, type: 2}
 --- !u!114 &1537441337
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,4 +1,4 @@
-using System.Collections;
+using Assets.Scripts.PubSub;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,7 +6,8 @@ public abstract class ItemPanelBase : MonoBehaviour
 {
     [SerializeField] protected ItemContainer inventory;
     [SerializeField] protected List<InventoryButton> inventoryButtons;
-    
+    [SerializeField] protected PubSubEvents pubSubEvents;
+
 
     protected void Init()
     {
@@ -22,12 +23,12 @@ public abstract class ItemPanelBase : MonoBehaviour
     void OnEnable()
     {
         Show();
-        inventory.OnChange += InventoryChanged;
+        pubSubEvents.OnInventoryChange += InventoryChanged;
     }
 
     void OnDisable()
     {
-        inventory.OnChange -= InventoryChanged;
+        pubSubEvents.OnInventoryChange -= InventoryChanged;
     }
 
     private void InventoryChanged()

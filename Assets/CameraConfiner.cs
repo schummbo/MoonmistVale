@@ -1,18 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
+using Assets.Scripts.PubSub;
 using Cinemachine;
 using UnityEngine;
 
 public class CameraConfiner : MonoBehaviour
 {
     [SerializeField] private CinemachineConfiner confiner;
+    [SerializeField] private PubSubEvents pubSubEvents;
 
     void Start()
     {
-        UpdateBounds();
+        pubSubEvents.OnScenePostChange += HandleScenePostChange;
+
+        HandleScenePostChange();
     }
 
-    public void UpdateBounds()
+    private void HandleScenePostChange()
     {
         var cameraConfiner = GameObject.Find("CameraConfiner");
 

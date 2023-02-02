@@ -22,6 +22,8 @@ public class Firefly : MonoBehaviour
 
     private bool isTurningOff;
 
+    public bool IsToggling => buttLight.IsToggling;
+
     void Awake()
     {
         startPos = this.transform.position;
@@ -85,15 +87,15 @@ public class Firefly : MonoBehaviour
         transform.position = new Vector2(movePos.x, movePos.y);
     }
 
-    public void TurnOn()
+    public void TurnOn(bool randomize)
     {
         this.gameObject.SetActive(true);
-        this.buttLight.TurnOn(true);
+        this.buttLight.TurnOn(randomize);
     }
 
-    public void TurnOff()
+    public void TurnOff(bool randomize)
     {
-        this.buttLight.TurnOff(true);
+        this.buttLight.TurnOff(randomize);
         isTurningOff = true;
     }
 }

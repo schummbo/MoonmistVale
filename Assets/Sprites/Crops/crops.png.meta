@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -70,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -7283,8 +7283,8 @@ TextureImporter:
       crops_274: -1413501280
       crops_3: 1315402539
       crops_132: 38667086
-      crops_184: 153180808
       crops_196: 1723317069
+      crops_184: 153180808
       crops_109: -1683242192
       crops_160: 1870098736
       crops_30: -1204506012

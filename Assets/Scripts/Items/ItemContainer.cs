@@ -1,13 +1,13 @@
-using System;
 using System.Collections.Generic;
+using Assets.Scripts.PubSub;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Data/Item Container")]
 public class ItemContainer : ScriptableObject
 {
-    public List<ItemSlot> ItemSlots;
+    [SerializeField] private PubSubEvents pubSubEvents;
 
-    public Action OnChange;
+    public List<ItemSlot> ItemSlots;
 
     public void Add(Item item, int count = 1)
     {
@@ -35,7 +35,7 @@ public class ItemContainer : ScriptableObject
             }
         }
 
-        OnChange?.Invoke();
+        pubSubEvents.OnInventoryChange?.Invoke();
     }
 
     public void RemoveItem(Item item, int itemCount = 1)
@@ -71,6 +71,6 @@ public class ItemContainer : ScriptableObject
             }
         }
 
-        OnChange?.Invoke();
+        pubSubEvents.OnInventoryChange?.Invoke();
     }
 }

@@ -1,12 +1,12 @@
 using Cinemachine;
 using System.Collections;
+using Assets.Scripts.PubSub;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameSceneManager : MonoBehaviour
 {
     [SerializeField] private ScreenTint screenTint;
-    [SerializeField] private CameraConfiner cameraConfiner;
 
     private AsyncOperation unload;
     private AsyncOperation load;
@@ -14,6 +14,8 @@ public class GameSceneManager : MonoBehaviour
     public static GameSceneManager Instance;
 
     private string currentScene;
+
+    [SerializeField] private PubSubEvents pubSubEvents;
 
     void Awake()
     {
@@ -56,6 +58,8 @@ public class GameSceneManager : MonoBehaviour
         screenTint.Tint();
 
         yield return new WaitForSeconds(1 / screenTint.speed + .1f);
+        
+        pubSubEvents.OnScenePreChange?.Invoke();
 
         SwitchScene(sceneName, targetPosition);
 
@@ -74,7 +78,7 @@ public class GameSceneManager : MonoBehaviour
             yield return new WaitForSeconds(.1f);
         }
 
-        cameraConfiner.UpdateBounds();
+        pubSubEvents.OnScenePostChange?.Invoke();
 
         screenTint.Untint();
     }

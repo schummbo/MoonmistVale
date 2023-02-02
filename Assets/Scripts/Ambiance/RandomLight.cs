@@ -13,20 +13,20 @@ namespace Assets.Scripts.Ambiance
         private float currentTime;
         private float futureTime;
         private bool isLighting;
-        private bool isToggling;
 
+        public bool IsToggling { get; private set; }
         public bool IsOn => randomLight.enabled;
 
         void Update()
         {
-            if (isToggling)
+            if (IsToggling)
             {
                 currentTime += Time.deltaTime;
 
                 if (currentTime > futureTime)
                 {
                     randomLight.enabled = isLighting;
-                    isToggling = false;
+                    IsToggling = false;
                 }
             }
         }
@@ -35,7 +35,7 @@ namespace Assets.Scripts.Ambiance
         {
             SetFutureTime(randomize);
 
-            isToggling = true;
+            IsToggling = true;
             isLighting = true;
         }
 
@@ -43,7 +43,7 @@ namespace Assets.Scripts.Ambiance
         {
             SetFutureTime(randomize);
 
-            isToggling = true;
+            IsToggling = true;
             isLighting = false;
         }
 
