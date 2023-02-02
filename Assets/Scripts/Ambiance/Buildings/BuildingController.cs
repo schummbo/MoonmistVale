@@ -6,7 +6,20 @@ public class BuildingController : TimeBasedBehaviorBase
     [SerializeField] private int turnOnHour = 20;
     [SerializeField] private int turnOffHour = 5;
 
-    [SerializeField] private List<Building> buildings;
+    private List<Building> buildings;
+
+    public static BuildingController Instance;
+
+    void Awake()
+    {
+        Instance = this;
+        buildings = new List<Building>();
+    }
+
+    public void AddBuilding(Building building)
+    {
+        buildings.Add(building);
+    }
 
     protected override void HandlePhaseStarted(int phase)
     {

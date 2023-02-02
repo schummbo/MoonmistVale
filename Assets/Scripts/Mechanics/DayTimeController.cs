@@ -84,4 +84,9 @@ public class DayTimeController : MonoBehaviour
         currentTimeSeconds = 0;
         days += 1;
     }
+
+    public int GetCurrentPhase()
+    {
+        return TimeUtilities.GetPhase(currentTimeSeconds);
+    }
 }

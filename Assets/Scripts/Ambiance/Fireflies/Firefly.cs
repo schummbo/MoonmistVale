@@ -30,6 +30,11 @@ public class Firefly : MonoBehaviour
         buttLight = GetComponent<RandomLight>();
     }
 
+    void Start()
+    {
+        FireflyController.Instance.AddFirefly(this);
+    }
+
     void OnEnable()
     {
         nextDirectionChange = Random.Range(timeChangeMin, timeChangeMax);

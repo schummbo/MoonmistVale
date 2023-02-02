@@ -5,6 +5,11 @@ public class Building : MonoBehaviour
 {
     [SerializeField] private RandomLight porchLight;
 
+    void Start()
+    {
+        BuildingController.Instance.AddBuilding(this);
+    }
+
     public void TurnOnPorchLight(bool randomize)
     {
         porchLight.TurnOn(randomize);
