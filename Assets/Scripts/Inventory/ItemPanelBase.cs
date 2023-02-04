@@ -44,7 +44,7 @@ public abstract class ItemPanelBase : MonoBehaviour
         }
     }
 
-    public void Show()
+    public virtual void Show()
     {
         for (int i = 0; i < inventoryButtons.Count; i++)
         {

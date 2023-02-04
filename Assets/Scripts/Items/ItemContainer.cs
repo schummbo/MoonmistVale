@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Assets.Scripts.PubSub;
 using UnityEngine;
 
@@ -72,5 +73,27 @@ public class ItemContainer : ScriptableObject
         }
 
         pubSubEvents.OnInventoryChange?.Invoke();
+    }
+
+    public bool HasFreeSpace()
+    {
+        return this.ItemSlots.Any(slot => slot.Item == null);
+    }
+
+    public bool HasItems(ItemSlot itemToCheck)
+    {
+        var slot = ItemSlots.Find(slot => slot.Item == itemToCheck.Item);
+
+        if (slot == null)
+        {
+            return false;
+        }
+
+        if (itemToCheck.Item.Stackable)
+        {
+            return slot.Count >= itemToCheck.Count;
+        }
+
+        return true;
     }
 }
