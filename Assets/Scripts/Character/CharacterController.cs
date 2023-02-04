@@ -69,7 +69,6 @@ public class CharacterController : MonoBehaviour
         }
     }
 
-
     void FixedUpdate()
     {
         if (isMoving)
@@ -87,5 +86,4 @@ public class CharacterController : MonoBehaviour
     {
         rigidbody2d.velocity = Vector2.zero;
     }
-
 }

@@ -7,7 +7,6 @@ namespace Assets.Scripts.Crops
     public class CropData : ScriptableObject
     {
         public int PhasesToGrow;
-        public int PhaseToDie;
         public Item Yield;
         public int Count = 1;
 

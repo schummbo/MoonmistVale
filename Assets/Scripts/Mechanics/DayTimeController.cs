@@ -1,4 +1,5 @@
 using System;
+using Assets.Scripts.PubSub;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
@@ -23,9 +24,9 @@ public class DayTimeController : MonoBehaviour
 
     [SerializeField] Light2D globalLight;
 
-    private int days = 1;
+    [SerializeField] private PubSubEvents pubSubEvents;
 
-    public Action<int> OnPhaseStarted;
+    private int days = 1;
 
     void Awake()
     {
@@ -59,8 +60,8 @@ public class DayTimeController : MonoBehaviour
         if (previousPhase != currentPhase)
         {
             previousPhase = currentPhase;
-
-            OnPhaseStarted?.Invoke(currentPhase);
+            
+            pubSubEvents.OnPhaseStarting?.Invoke(currentPhase);
         }
     }
     
@@ -83,5 +84,10 @@ public class DayTimeController : MonoBehaviour
     {
         currentTimeSeconds = 0;
         days += 1;
+    }
+
+    public int GetCurrentPhase()
+    {
+        return TimeUtilities.GetPhase(currentTimeSeconds);
     }
 }
