@@ -9,7 +9,10 @@ EditorBuildSettings:
     path: Assets/Scenes/MainScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
+    path: Assets/Scenes/Essentials.unity
+    guid: 17f1256a787f4834e8ba2b45b259d898
+  - enabled: 1
     path: Assets/Scenes/Village.unity
-    guid: 91b64092c15e4a84db981ec2254579db
+    guid: a72b049716a526246b75d5dcba3d2cca
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 6fbbd6c6e7c75f94599bb0fc9debcd41, type: 2}
