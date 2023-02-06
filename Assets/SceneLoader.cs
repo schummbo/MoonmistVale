@@ -7,7 +7,7 @@ public class SceneLoader : MonoBehaviour
 {
     void Awake()
     {
-        SceneManager.LoadScene("MainScene");
+        SceneManager.LoadScene("Main");
         SceneManager.LoadScene("Essentials", LoadSceneMode.Additive);
     }
 }
