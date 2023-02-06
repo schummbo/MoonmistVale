@@ -17,12 +17,19 @@ public class TileMapReadController : MonoBehaviour
 
     void OnEnable()
     {
+        pubSubEvents.OnScenePreChange += RemoveGroundTilemap;
         pubSubEvents.OnScenePostChange += SetGroundTilemap;
     }
 
     void OnDisable()
     {
+        pubSubEvents.OnScenePreChange -= RemoveGroundTilemap;
         pubSubEvents.OnScenePostChange -= SetGroundTilemap;
+    }
+
+    private void RemoveGroundTilemap()
+    {
+        groundTileMap = null;
     }
 
     private void SetGroundTilemap()
@@ -37,6 +44,11 @@ public class TileMapReadController : MonoBehaviour
 
     public Vector3Int GetGridPosition(Vector2 position, bool mousePosition = false)
     {
+        if (groundTileMap == null)
+        {
+            return Vector3Int.zero;
+        }
+
         var worldPoint = position;
 
         if (mousePosition)
@@ -49,6 +61,11 @@ public class TileMapReadController : MonoBehaviour
 
     public TileBase GetTileBase(Vector3Int cell)
     {
+        if (groundTileMap == null)
+        {
+            return null;
+        }
+
         return groundTileMap.GetTile(cell);
     }
 
@@ -68,6 +85,5 @@ public class TileMapReadController : MonoBehaviour
         }
 
         return cells;
-
     }
 }
