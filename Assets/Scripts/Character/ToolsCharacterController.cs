@@ -80,11 +80,10 @@ public class ToolsCharacterController : MonoBehaviour
     {
         if (context.performed)
         {
-            if (!UseToolWorld() && !UseToolGrid())
+            if (UseToolWorld() || UseToolGrid() || PickUpTile())
             {
-                PickUpTile();
+                animator.SetTrigger("PerformAction");
             }
-            animator.SetTrigger("PerformAction");
         }
     }
 
@@ -96,8 +95,7 @@ public class ToolsCharacterController : MonoBehaviour
 
         if (selectedTool == null)
         {
-            PickUpTile();
-            return true;
+            return PickUpTile();
         }
 
         if (selectedTool.onAction != null)
@@ -107,20 +105,22 @@ public class ToolsCharacterController : MonoBehaviour
                 if (selectedTool.onItemUsed != null)
                 {
                     selectedTool.onItemUsed.OnItemUsed(selectedTool, GameManager.Instance.InventoryContainer);
-                    return true;
                 }
+                return true;
             }
         }
 
         return false;
     }
 
-    private void PickUpTile()
+    private bool PickUpTile()
     {
         if (onTilePickUp == null)
-            return;
+        {
+            return false;
+        }
 
-        onTilePickUp.OnApplyToTileMap(selectedTilePosition, tileMapReadController, null);
+        return onTilePickUp.OnApplyToTileMap(selectedTilePosition, tileMapReadController, null);
     }
 
     public bool UseToolGrid()
@@ -136,8 +136,9 @@ public class ToolsCharacterController : MonoBehaviour
                     if (selectedTool.onItemUsed != null)
                     {
                         selectedTool.onItemUsed.OnItemUsed(selectedTool, GameManager.Instance.InventoryContainer);
-                        return true;
                     }
+
+                    return true;
                 }
             }
         }

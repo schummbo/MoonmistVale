@@ -1,8 +1,10 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using UnityEngine;
 
 namespace Assets.Scripts.Crops
 {
+    [Serializable]
     public class Crop
     {
         private readonly SpriteRenderer spriteRenderer;

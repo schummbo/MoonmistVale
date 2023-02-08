@@ -12,8 +12,7 @@ public class TilePickupAction : ToolActionBase
 
     public override bool OnApplyToTileMap(Vector3Int tileMapPosition, TileMapReadController tileMapReadController, Item item)
     {
-        tileMapReadController.cropsManager.PickUp(tileMapPosition);
-        return true;
+        return tileMapReadController.cropsManager.PickUp(tileMapPosition);
     }
 
     public override void OnItemUsed(Item itemUsed, ItemContainer inventory)

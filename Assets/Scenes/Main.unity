@@ -22254,6 +22254,7 @@ GameObject:
   - component: {fileID: 1020231990}
   - component: {fileID: 1020231989}
   - component: {fileID: 1020231988}
+  - component: {fileID: 1020231991}
   m_Layer: 0
   m_Name: Plowed
   m_TagString: Untagged
@@ -22621,6 +22622,23 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1020231991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1020231986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08371a5242ccde445b82f0896ea0915d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pubSubEvents: {fileID: 11400000, guid: 9d17f323c1906174e9943fd8dd785158, type: 2}
+  cropsContainer: {fileID: 11400000, guid: 31d0ad071f3a4314aaa5379c77a2d5c3, type: 2}
+  plowedTile: {fileID: 11400000, guid: c938f5d7c78591a4dbc11016ebfbae78, type: 2}
+  seededTile: {fileID: 11400000, guid: 4bb6ebe71fdb29a4f9b3e439d8701b95, type: 2}
+  cropSpritePrefab: {fileID: 8082122303629567667, guid: c3487e3de78498f4886a46db8dc36e7b, type: 3}
 --- !u!4 &1029784262 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4892180005726930149, guid: 6c5d598bbd03d5e4f896c41050ffc827, type: 3}
