@@ -25,9 +25,9 @@ namespace Assets.Scripts.Crops
         {
             growTimer++;
 
-            if (growTimer >= this.CropData.GrowthStagePhases[currentGrowthStageIndex])
+            if (growTimer >= this.CropData.GrowthStages[currentGrowthStageIndex].Phase)
             {
-                this.spriteRenderer.sprite = this.CropData.GrowthStages[currentGrowthStageIndex];
+                this.spriteRenderer.sprite = this.CropData.GrowthStages[currentGrowthStageIndex].AppearanceAtStage;
                 this.spriteRenderer.gameObject.SetActive(true);
 
                 currentGrowthStageIndex++;
@@ -36,7 +36,7 @@ namespace Assets.Scripts.Crops
 
         public bool IsGrowing()
         {
-            return growTimer >= this.CropData.GrowthStagePhases.First();
+            return growTimer >= this.CropData.GrowthStages.First().Phase;
         }
 
         public bool IsDead()

@@ -13,16 +13,22 @@ MonoBehaviour:
   m_Name: Corn Data
   m_EditorClassIdentifier: 
   PhasesToGrow: 24
-  PhaseToDie: 30
   Yield: {fileID: 11400000, guid: d8f9ad8261b1aab478d14322d17de017, type: 2}
   Count: 1
   GrowthStages:
-  - {fileID: -1204506012, guid: c51989d8813d2b44ea219f4cc5b55e72, type: 3}
-  - {fileID: 1082629124, guid: c51989d8813d2b44ea219f4cc5b55e72, type: 3}
-  - {fileID: -835241506, guid: c51989d8813d2b44ea219f4cc5b55e72, type: 3}
-  - {fileID: -490118773, guid: c51989d8813d2b44ea219f4cc5b55e72, type: 3}
-  - {fileID: 1713436258, guid: c51989d8813d2b44ea219f4cc5b55e72, type: 3}
-  - {fileID: 277210031, guid: c51989d8813d2b44ea219f4cc5b55e72, type: 3}
-  - {fileID: 889500061, guid: c51989d8813d2b44ea219f4cc5b55e72, type: 3}
-  - {fileID: -2063883714, guid: c51989d8813d2b44ea219f4cc5b55e72, type: 3}
-  GrowthStagePhases: 0300000006000000090000000c0000000f000000120000001500000018000000
+  - AppearanceAtStage: {fileID: -1204506012, guid: c51989d8813d2b44ea219f4cc5b55e72, type: 3}
+    Phase: 3
+  - AppearanceAtStage: {fileID: 1082629124, guid: c51989d8813d2b44ea219f4cc5b55e72, type: 3}
+    Phase: 6
+  - AppearanceAtStage: {fileID: -835241506, guid: c51989d8813d2b44ea219f4cc5b55e72, type: 3}
+    Phase: 9
+  - AppearanceAtStage: {fileID: -490118773, guid: c51989d8813d2b44ea219f4cc5b55e72, type: 3}
+    Phase: 12
+  - AppearanceAtStage: {fileID: 1713436258, guid: c51989d8813d2b44ea219f4cc5b55e72, type: 3}
+    Phase: 15
+  - AppearanceAtStage: {fileID: 277210031, guid: c51989d8813d2b44ea219f4cc5b55e72, type: 3}
+    Phase: 18
+  - AppearanceAtStage: {fileID: 889500061, guid: c51989d8813d2b44ea219f4cc5b55e72, type: 3}
+    Phase: 21
+  - AppearanceAtStage: {fileID: -2063883714, guid: c51989d8813d2b44ea219f4cc5b55e72, type: 3}
+    Phase: 24
