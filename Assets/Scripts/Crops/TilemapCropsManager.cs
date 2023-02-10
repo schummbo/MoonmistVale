@@ -20,6 +20,37 @@ public class TilemapCropsManager : TimeBasedBehaviorBase
     void Start()
     {
         GameManager.Instance.GetComponent<CropsManager>().TilemapCropsManager = this;
+        VisualizeMap();
+    }
+
+    private void VisualizeMap()
+    {
+        foreach (var crop in cropsContainer.Crops)
+        {
+            VisualizeTile(crop);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        foreach (var t in cropsContainer.Crops)
+        {
+            t.spriteRenderer = null;
+        }
+    }
+
+    public void VisualizeTile(Crop crop)
+    {
+        cropsTilemap.SetTile(crop.position, crop.cropData != null ? seededTile : plowedTile);
+
+        if (crop.spriteRenderer == null)
+        {
+            var go = Instantiate(cropSpritePrefab, transform);
+            go.transform.position = cropsTilemap.CellToWorld(crop.position);
+            crop.spriteRenderer = go.GetComponent<SpriteRenderer>();
+        }
+
+        crop.Show();
     }
 
     protected override void HandlePhaseStarted(int phase)
@@ -35,13 +66,13 @@ public class TilemapCropsManager : TimeBasedBehaviorBase
 
             if (crop.IsGrowing())
             {
-                cropsTilemap.SetTile(crop.Position, plowedTile);
+                cropsTilemap.SetTile(crop.position, plowedTile);
             }
 
             if (crop.IsDead())
             {
                 crop.Harvest();
-                cropsTilemap.SetTile(crop.Position, plowedTile);
+                cropsTilemap.SetTile(crop.position, plowedTile);
             }
         }
     }
@@ -53,14 +84,10 @@ public class TilemapCropsManager : TimeBasedBehaviorBase
             return false;
         }
 
-        var go = Instantiate(cropSpritePrefab, cropsTilemap.CellToWorld(position), Quaternion.identity);
-        go.SetActive(false);
-
-        var crop = new Crop(position, go.GetComponent<SpriteRenderer>());
+        var crop = new Crop(position);
 
         cropsContainer.Plow(crop);
-
-        cropsTilemap.SetTile(position, plowedTile);
+        VisualizeTile(crop);
 
         return true;
     }
@@ -97,12 +124,12 @@ public class TilemapCropsManager : TimeBasedBehaviorBase
 
         ItemSpawnManager.Instance.SpawnItem(
             cropsTilemap.CellToWorld(tileMapPosition),
-            crop.CropData.Yield,
-            crop.CropData.Count);
+            crop.cropData.Yield,
+            crop.cropData.Count);
 
         crop.Harvest();
 
-        cropsTilemap.SetTile(tileMapPosition, plowedTile);
+        VisualizeTile(crop);
 
         return true;
     }

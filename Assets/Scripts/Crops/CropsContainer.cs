@@ -10,12 +10,12 @@ public class CropsContainer : ScriptableObject
 
     public IEnumerable<Crop> GetPlantedCrops()
     {
-        return Crops?.Where(tile => tile.CropData != null) ?? Enumerable.Empty<Crop>();
+        return Crops?.Where(tile => tile.cropData != null) ?? Enumerable.Empty<Crop>();
     }
 
     public bool IsPlowed(Vector3Int position)
     {
-        return Crops?.Find(crop => crop.Position == position) != null;
+        return Crops?.Find(crop => crop.position == position) != null;
     }
 
     public void Plow(Crop crop)
@@ -25,7 +25,7 @@ public class CropsContainer : ScriptableObject
             return;
         }
 
-        if (!IsPlowed(crop.Position))
+        if (!IsPlowed(crop.position))
         {
             Crops.Add(crop);
         }
@@ -33,19 +33,19 @@ public class CropsContainer : ScriptableObject
 
     public Crop GetCrop(Vector3Int position)
     {
-        return Crops?.Find(crop => crop.Position == position);
+        return Crops?.Find(crop => crop.position == position);
     }
 
     public bool Seed(Vector3Int position, CropData cropData)
     {
         var crop = GetCrop(position);
 
-        if (crop == null || crop.CropData != null)
+        if (crop == null || crop.cropData != null)
         {
             return false;
         }
         
-        crop.CropData = cropData;
+        crop.cropData = cropData;
 
         return true;
     }
