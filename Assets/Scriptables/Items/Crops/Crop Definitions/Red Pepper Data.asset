@@ -13,12 +13,14 @@ MonoBehaviour:
   m_Name: Red Pepper Data
   m_EditorClassIdentifier: 
   PhasesToGrow: 8
-  PhaseToDie: 15
   Yield: {fileID: 11400000, guid: edd088e34e324724d87fa9763f5cfde0, type: 2}
   Count: 1
   GrowthStages:
-  - {fileID: 1569946087, guid: c51989d8813d2b44ea219f4cc5b55e72, type: 3}
-  - {fileID: 157224258, guid: c51989d8813d2b44ea219f4cc5b55e72, type: 3}
-  - {fileID: 533371689, guid: c51989d8813d2b44ea219f4cc5b55e72, type: 3}
-  - {fileID: -943361895, guid: c51989d8813d2b44ea219f4cc5b55e72, type: 3}
-  GrowthStagePhases: 02000000040000000600000008000000
+  - AppearanceAtStage: {fileID: 1569946087, guid: c51989d8813d2b44ea219f4cc5b55e72, type: 3}
+    Phase: 2
+  - AppearanceAtStage: {fileID: 157224258, guid: c51989d8813d2b44ea219f4cc5b55e72, type: 3}
+    Phase: 4
+  - AppearanceAtStage: {fileID: 533371689, guid: c51989d8813d2b44ea219f4cc5b55e72, type: 3}
+    Phase: 6
+  - AppearanceAtStage: {fileID: -943361895, guid: c51989d8813d2b44ea219f4cc5b55e72, type: 3}
+    Phase: 8

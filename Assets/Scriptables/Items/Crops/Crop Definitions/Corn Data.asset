@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13652a97f387bf24fbac60b97e5f6d45, type: 3}
+  m_Name: Corn Data
+  m_EditorClassIdentifier: 
+  PhasesToGrow: 24
+  Yield: {fileID: 11400000, guid: d8f9ad8261b1aab478d14322d17de017, type: 2}
+  Count: 1
+  GrowthStages:
+  - AppearanceAtStage: {fileID: -1204506012, guid: c51989d8813d2b44ea219f4cc5b55e72, type: 3}
+    Phase: 3
+  - AppearanceAtStage: {fileID: 1082629124, guid: c51989d8813d2b44ea219f4cc5b55e72, type: 3}
+    Phase: 6
+  - AppearanceAtStage: {fileID: -835241506, guid: c51989d8813d2b44ea219f4cc5b55e72, type: 3}
+    Phase: 9
+  - AppearanceAtStage: {fileID: -490118773, guid: c51989d8813d2b44ea219f4cc5b55e72, type: 3}
+    Phase: 12
+  - AppearanceAtStage: {fileID: 1713436258, guid: c51989d8813d2b44ea219f4cc5b55e72, type: 3}
+    Phase: 15
+  - AppearanceAtStage: {fileID: 277210031, guid: c51989d8813d2b44ea219f4cc5b55e72, type: 3}
+    Phase: 18
+  - AppearanceAtStage: {fileID: 889500061, guid: c51989d8813d2b44ea219f4cc5b55e72, type: 3}
+    Phase: 21
+  - AppearanceAtStage: {fileID: -2063883714, guid: c51989d8813d2b44ea219f4cc5b55e72, type: 3}
+    Phase: 24

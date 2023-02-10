@@ -78,6 +78,8 @@ public class GameSceneManager : MonoBehaviour
             yield return new WaitForSeconds(.1f);
         }
 
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName(currentScene));
+
         pubSubEvents.OnScenePostChange?.Invoke();
 
         screenTint.Untint();

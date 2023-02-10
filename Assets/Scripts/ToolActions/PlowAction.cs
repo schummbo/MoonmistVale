@@ -23,9 +23,7 @@ namespace Assets.Scripts.Tools
                 return false;
             }
 
-            tileMapReadController.cropsManager.Plow(tileMapPosition);
-
-            return true;
+            return tileMapReadController.cropsManager.Plow(tileMapPosition);
         }
 
         public override void OnItemUsed(Item itemUsed, ItemContainer inventory)

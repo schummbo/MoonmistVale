@@ -10,7 +10,6 @@ namespace Assets.Scripts.Crops
         public Item Yield;
         public int Count = 1;
 
-        public List<Sprite> GrowthStages;
-        public List<int> GrowthStagePhases;
+        public List<GrowthStage> GrowthStages;
     }
 }
