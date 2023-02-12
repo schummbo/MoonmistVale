@@ -104,3 +104,8 @@ body {
     padding: 10px;
     display: none
 }
+
+#controls-container {
+    clear: both;
+    margin-top: 50px;
+}
